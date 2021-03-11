@@ -1,25 +1,25 @@
 # Cahier des charges du jeu d'echec
 
-## Palier 1 : Interface Graphique et JcJ fonctionel
+## Palier 1 : Interface Graphique et JcJ fonctionnel
 
-- Implémenter le Joueur contre Joueur sur la même machine.
-- Affichage des pion.
-- Controle des mouvements des pions avec le clavier (en indiquant les coordonés A et B).
-- Faire en sorte que le jeu refuse les coups imposibles. 
+- Implémenter le joueur contre joueur sur la même machine.
+- Affichage des pions.
+- Contrôle des mouvements des pions avec le clavier (en indiquant les coordonnés A et B).
+- Faire en sorte que le jeu refuse les coups impossibles. 
 - Le jeu signale quand un joueur gagne, qu'il y a égalité ou pat.
 
 ## Palier 2 : Implémentation d'une IA basique
 
-- Au lancement d'un partie je jouer peut choisir entre une partie contre une IA ou un autre Joueur.
-- L'IA utilise l'euristique a un niveau pour choirsir ces coups.
+- Au lancement d'une partie le joueur peut choisir entre une partie contre une IA ou un autre Joueur.
+- L'IA utilise l'euristique à un niveau pour choisir ses coups.
 
 ## Palier 3 : Sauvegarde 
 
-- Evolution drawinienne des IA (avec des tournois).
-- Bibliotéque d'ouverture.
-- Implémentation d'un systéme de sauvgarde.
+- volution darwinienne des IA (avec des tournois).
+- Bibliothèque d'ouvertures.
+- Implementation d'un système de sauvegarde.
 - Enregistrement et replay de la partie.
-- Retour ariére.
+- Retour arrière.
 
 ## Palier 4
 
@@ -27,7 +27,7 @@
 
 - le robot joue aléatoirement
 
-# Architechrure Logicielle
+# Architecture Logicielle
 
 Cette section contien la définition des classes et des types de variables.
 
