@@ -29,8 +29,24 @@
 
 # Architechrure Logicielle
 
-struct piece { char couleur ; char type }
+Cette section contien la définition des classes et des types de variables.
 
-list echiquier[8][8]
+## Piéces d'échiquier:
 
-class Moteur
+Les piéces d'échiquier sont représentés par des chaines de deux charactére. Le premier charactére représente **le type de la piéce** et le deuxiéme **sa couleure**.
+
+ex : une tour noire "TN"
+
+|lettre|couleur|
+|:----:|:-----:|
+|N     |Noir   |
+|B     |Blanc  |
+
+|lettre | type    |
+|:-----:|---------|
+| R	| Roi     |
+| r	| Reinne  |
+| F	| Fou     |
+| C	| Cavalier|
+| T     | Tour    |
+| P	| Pion    |
