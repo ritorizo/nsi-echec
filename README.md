@@ -33,7 +33,7 @@ Cette section contien la définition des classes et des types de variables.
 
 ## Piéces d'échiquier:
 
-Les piéces d'échiquier sont représentés par des chaines de deux charactére. Le premier charactére représente **le type de la piéce** et le deuxiéme **sa couleure**.
+Les pièces d'échiquier sont représentés par des chaines de deux caractères. Le premier charactére représente **le type de la pièce** et le deuxiéme **sa couleur**.
 
 ex : une tour noire "TN"
 
