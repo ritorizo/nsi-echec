@@ -45,7 +45,11 @@ ex : une tour noire "TN"
 |lettre | type    |
 |:-----:|---------|
 | R	| Roi     |
+<<<<<<< HEAD
 | Q	| Reinne  |
+=======
+| Q	| Reine  |
+>>>>>>> f94923d6af2b8862e237f11dae86a2140dc08b8b
 | F	| Fou     |
 | C	| Cavalier|
 | T     | Tour    |
