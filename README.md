@@ -38,15 +38,19 @@ Les piéces d'échiquier sont représentés par des chaines de deux charactére.
 ex : une tour noire "TN"
 
 |lettre|couleur|
-|:----:|:-----:|
+|:----:|-------|
 |N     |Noir   |
 |B     |Blanc  |
 
 |lettre | type    |
 |:-----:|---------|
 | R	| Roi     |
-| r	| Reinne  |
+| Q	| Reinne  |
 | F	| Fou     |
 | C	| Cavalier|
 | T     | Tour    |
 | P	| Pion    |
+
+## Échiquier:
+
+
