@@ -45,7 +45,7 @@ ex : une tour noire "TN"
 |lettre | type    |
 |:-----:|---------|
 | R	| Roi     |
-| Q	| Reinne  |
+| Q	| Reine  |
 | F	| Fou     |
 | C	| Cavalier|
 | T     | Tour    |
