@@ -21,8 +21,6 @@
 - Enregistrement et replay de la partie.
 - Retour arrière.
 
-## Palier 4
-
 ## Palier secret
 
 - le robot joue aléatoirement
