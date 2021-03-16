@@ -26,16 +26,16 @@ ex :
 - [[[TB][][KN][][][][][]] [[][][][][QB][][][]] [[][][][][][][][]] [[][][][][][][][]] [[][][][][][KB][][]] [[][][][][][][][]] [[PB][][][][][][][]] [[][][][][][][][]] 24]
 
 
-##les cordonné d'une piece
+##Les cordonnées d'une pièce
 
-les cordonné d'une piece sont définie par un tuple (ontenant une lettre majuscule(A  B  C  D  E  F  G  H)et un chifre(1  2  3  4  5  6  7  8))
+les cordonnées d'une pièce sont définie par un tuple (contenant une lettre majuscule(A  B  C  D  E  F  G  H)et un chifre(1  2  3  4  5  6  7  8))
 
 ex:
 (B5)
 
-##LES MOUVEMENT DE PIECE
+##Les mouvements de pièces
 
-le mouvement d'une piece est définie par un tuple(contenant 2 tuple( le premier contenat les cordoné de dépar de la piece et le seguon les cordonné d'arriver))
+le mouvement d'une piece est définie par un tuple(contenant 2 tuple( le premier contenant les cordonées de départ de la pièce et le second tuple les cordonnées d'arrivée))
 
 ex:
 ((A5)(B6))
