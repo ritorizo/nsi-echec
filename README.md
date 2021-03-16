@@ -31,30 +31,6 @@
 
 Cette section contien la définition des classes et des types de variables.
 
-## Piéces d'échiquier:
 
-Les pièces d'échiquier sont représentés par des chaines de deux caractères. Le premier charactére représente **le type de la pièce** et le deuxiéme **sa couleur**.
-
-ex : une tour noire "TN"
-
-|lettre|couleur|
-|:----:|-------|
-|N     |Noir   |
-|B     |Blanc  |
-
-|lettre | type    |
-|:-----:|---------|
-| K	| Roi     |
-| Q	| Reine  |
-| F	| Fou     |
-| C	| Cavalier|
-| T     | Tour    |
-| P	| Pion    |
-
-## Échiquier:
-l'échiquier est définie par une liste (de 8 liste (de 8 liste (qui seront soit vide, soit contenant une string de 2 caractère(un pion))))et un int qui sera le numéro du tour   
-
-ex :
-- [[[TB][][KN][][][][][]] [[][][][][QB][][][]] [[][][][][][][][]] [[][][][][][][][]] [[][][][][][KB][][]] [[][][][][][][][]] [[PB][][][][][][][]] [[][][][][][][][]] 24] 
 
 
