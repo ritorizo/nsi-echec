@@ -52,8 +52,9 @@ ex : une tour noire "TN"
 | P	| Pion    |
 
 ## Échiquier:
-l'échiquier est définie par une liste (de 8 liste (de 8 liste (qui seron soit vide soit contenant une string de 2 caractaire(un pion))))et un int qui sera le numéro du tour   
-ex
-[[[TB][][KN][][][][][]] [[][][][][QB][][][]] [[][][][][][][][]] [[][][][][][][][]] [[][][][][][KB][][]] [[][][][][][][][]] [[PB][][][][][][][]] [[][][][][][][][]] 24] 
+l'échiquier est définie par une liste (de 8 liste (de 8 liste (qui seront soit vide, soit contenant une string de 2 caractère(un pion))))et un int qui sera le numéro du tour   
+
+ex :
+- [[[TB][][KN][][][][][]] [[][][][][QB][][][]] [[][][][][][][][]] [[][][][][][][][]] [[][][][][][KB][][]] [[][][][][][][][]] [[PB][][][][][][][]] [[][][][][][][][]] 24] 
 
 
