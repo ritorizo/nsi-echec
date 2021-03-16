@@ -13,7 +13,7 @@
 - Au lancement d'une partie le joueur peut choisir entre une partie contre une IA ou un autre Joueur.
 - L'IA utilise l'euristique à un niveau pour choisir ses coups.
 
-## Palier 3 : Sauvegarde 
+## Palier 3 (optionnel) : Sauvegarde 
 
 - volution darwinienne des IA (avec des tournois).
 - Bibliothèque d'ouvertures.
