@@ -24,11 +24,3 @@
 ## Palier secret
 
 - le robot joue aléatoirement
-
-# Architecture Logicielle
-
-Cette section contien la définition des classes et des types de variables.
-
-
-
-
