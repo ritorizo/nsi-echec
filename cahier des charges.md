@@ -15,7 +15,7 @@
 
 ## Palier 3 (optionnel) : Sauvegarde 
 
-- volution darwinienne des IA (avec des tournois).
+- évolution darwinienne des IA (avec des tournois).
 - Bibliothèque d'ouvertures.
 - Implementation d'un système de sauvegarde.
 - Enregistrement et replay de la partie.
