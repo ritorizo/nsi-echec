@@ -40,28 +40,35 @@ le mouvement d'une piece est définie par un tuple(contenant 2 tuple( le premier
 ex:
 ((A5)(B6))
 
+
+## Les Class
 ### class Moteur
 
 description : cette class gére la partie.
 
 ```echiquier jeu_actuel```
-L'échiquier qui représente le status de la partie.
+	L'échiquier qui représente le status de la partie.
 
 
 ```méthdoe getEchiqier() : echiqier```
-renvois l'échiquier.
+	renvois l'échiquier.
 
 ```methode lancement(string) : rien``` 
-Prend une chaine composé de deux charactéres, le premier charactére représente l'agent qui va jouer les blanc et le deuxiéme celui qui va jouer les noir.
+	Prend une chaine composé de deux charactéres, le premier charactére représente l'agent qui va jouer les blanc et le deuxiéme celui qui va jouer les noir.
 
 Pour l'instant les agents suivant sont prévu :
-	"J" : Un joueur humain qui utilise la machine sur laquelle le jeu tourne.
-	"R" : Une intelligente artificielle basique.
+
+"J" : Un joueur humain qui utilise la machine sur laquelle le jeu tourne.
+
+"R" : Une intelligente artificielle basique.
+
 
 ```methode coupValide(mouvement) : boolean```
+
 Renvois True si le mouvement présenté est possible, sinon renvois False.
 
 ```methode boucleDeJeu(echiquier) : rien```
+
 Demande a l'agent dont c'est le tour son action par le biais de la méthode jouerTour(), applique les changement en éditant l'échiqier jeu_actuel et actualise l'interface graphique.
 
 
@@ -71,12 +78,16 @@ description : cette class gére l'interface utilisateur.
 
 	
 ```demanderCoup() : mouvement```
+
 Demande a l'utilisateur de déplacer une piéce et renvois le mouvement choisi.
 
+
 ```deplacePiece(mouvement) : rien``` 
+
 Déplace une piéce sur l'échiquer.
 
 ```changeEchiqier(echiqier)```
+
 Affiche l'échiqier mis en parapétre.
 
 ## class Agent
@@ -84,4 +95,5 @@ Affiche l'échiqier mis en parapétre.
 description : La classe agent est une classe qui sert a faire se que sa seule méthode fait : demander a un joueur se qu'il veut faire. Elle a été faite dans le but te pouvoir interagir avec nimporte quel type de joueur (Joueur local, IA, joueur distant...) de la même maniére.
 
 ```jouerTour() : mouvement```
+
 Demande a l'agent quelle piéce il veut déplacer
