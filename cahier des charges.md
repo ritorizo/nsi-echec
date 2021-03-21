@@ -24,3 +24,4 @@
 ## Palier secret
 
 - le robot joue aléatoirement
+- un timer
