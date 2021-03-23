@@ -48,29 +48,38 @@ description : cette class gére la partie.
 
 ```echiquier jeu_actuel```
 
-L'échiquier qui représente le status de la partie.
+L'echiquier qui représente le status de la partie.
 
+```méthdoe get-Echiqier() : echiqier```
 
-```méthdoe getEchiqier() : echiqier```
+renvois echiquier.
 
-renvois l'échiquier.
+```methode get_etat-partie```
 
-```methode lancement(string) : rien``` 
-	Prend une chaine composé de deux charactéres, le premier charactére représente l'agent qui va jouer les blanc et le deuxiéme celui qui va jouer les noir.
+renvoie etat_partie
 
-Pour l'instant les agents suivant sont prévu :
+```methode lancement(string) : rien ``` 
 
-"J" : Un joueur humain qui utilise la machine sur laquelle le jeu tourne.
-
-"R" : Une intelligente artificielle basique.
+place tout les paramétre  dasn leur état de base
 
 ```methode coupValide(mouvement) : boolean```
 
 Renvois True si le mouvement présenté est possible, sinon renvois False.
 
-```methode boucleDeJeu(echiquier) : rien```
+```methode gestion_coup_valider(mouvememnt) :echiqier ```
 
-Demande a l'agent dont c'est le tour son action par le biais de la méthode jouerTour(), applique les changement en éditant l'échiqier jeu_actuel et actualise l'interface graphique.
+éféctue tout les modification pour nésésair pour apliquer le coup
+soie:
+	-modifier l'échiquier
+	-tour +1
+	-stoquer l'ancein echiqier
+	-verifier si etat_partie a besoin d'etre modifier
+	
+et renvoie le nouvel éhiquier
+
+
+
+
 
 
 ## class Interface
@@ -85,7 +94,7 @@ Renvoie la composition de la partie (nombre de joueurs/robots et leur couleur) e
 
 ```2- generationEchiquier(self,echiquier)```
 
-Affiche l'échiquier actuel 
+Affiche l'echiquier actuel 
 
 ```3- partieFini(etat_partie)```
 
