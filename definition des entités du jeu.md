@@ -40,15 +40,25 @@ le mouvement d'une piece est définie par un tuple(contenant 2 tuple( le premier
 ex:
 ((A5)(B6))
 
+##etat_partie
+
+variable pouvant 1 string parmit  5 string diferante : 	"partie_en cour"
+							"victoir_J1"
+							"victoir_J2"
+							"pat"
+							"égalité"
+
 
 # Les Class
 ## class Moteur
 
 description : cette class gére la partie.
 
-```echiquier jeu_actuel```
+``` variable echiquier```
 
 L'echiquier qui représente le status de la partie.
+
+``'variable etat_partie```
 
 ```méthdoe get-Echiqier() : echiqier```
 
