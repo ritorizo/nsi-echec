@@ -78,23 +78,31 @@ Demande a l'agent dont c'est le tour son action par le biais de la méthode joue
 description : cette class gére l'interface utilisateur.
 
 	
-```demanderCoup() : mouvement```
+```1- demaragge(self)```
 
-Demande a l'utilisateur de déplacer une piéce et renvois le mouvement choisi.
+Renvoie la composition de la partie (nombre de joueurs/robots et leur couleur) et appelle init du moteur avec ce paramètre.
 
 
-```deplacePiece(mouvement) : rien``` 
+```2- generationEchiquier(self,echiquier)```
 
-Déplace une piéce sur l'échiquer.
+Affiche l'échiquier actuel 
 
-```changeEchiqier(echiqier)```
+```3- partieFini(etat_partie)```
 
-Affiche l'échiqier mis en parapétre.
+Vérifie si la partie est fini, et si oui quelle fin en la demandant au moteur
 
-## class Agent
+```4- appelerRobot(self)```
 
-description : La classe agent est une classe qui sert a faire se que sa seule méthode fait : demander a un joueur se qu'il veut faire. Elle a été faite dans le but te pouvoir interagir avec nimporte quel type de joueur (Joueur local, IA, joueur distant...) de la même maniére.
+vérifie si c'est le tour du robot et si oui, demande un coup au robot et l'enrengistrer dans une variable coup_joueur
 
-```jouerTour() : mouvement```
+```5- demanderCoup(self)```
 
-Demande a l'agent quelle piéce il veut déplacer
+Renvoie le coup du joueur si c'est son tour et l'enrengistrer dans une variable coup_joueur
+
+```6- verifierCoup(self,coup_joueur)```
+
+Appelles la fonction du moteur qui sert à vérifier si le coup en paramètre est valide. Si oui, mettre dans une variable coup_valide = True que le coup est valide. Sinon, afficher un message d'erreur.
+
+```7- modifierEchiquier(self,coup_valide,coup_joueur)```
+
+Si coup_valide == True, appeler la fonction du moteur qui modifie l'echiquier avec comme paramètre coup_joueur, et mettre coup_valide = False, et enrengistrer le nouveau echiquier à la place de l'ancien.
