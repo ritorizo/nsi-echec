@@ -85,7 +85,7 @@ soit:
 - stocker l'ancien echiquier
 - verifier si etat_partie a besoin d'etre modifier
 	
-et renvoie le nouvel éhiquier
+
 
 
 
@@ -134,6 +134,6 @@ Est appellée quand le coup_joueur est invalide. Affiche en conséquence un mess
 
 Envoie coup_valide au moteur puis appelle _mouvement_.
 
-```10- mouvement(self,coup_valide)```
+```10- mouvement(self,coup_traduit)```
 
 fait les changements sur l'échiquier graphique
