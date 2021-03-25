@@ -2,6 +2,8 @@ from Sauvegarde import sauvegarde
 
 echiquier = [[["TB"],[],["KN"],[],[],[],[],[]], [[],[],[],[],["QB"],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],["KB"],[],[]], [[],[],[],[],[],[],[],[]], [['PB'],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], 0]
 
+sauvegarde(echiquier)
+
 def gestion_coup_valider(mouvement): # mouvement entrée sous la forme ((0,5),(1,6))
     
     sauvegarde(echiquier)
