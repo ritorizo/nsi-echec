@@ -78,11 +78,11 @@ Renvois True si le mouvement présenté est possible, sinon renvois False.
 
 ```methode gestion_coup_valider(mouvement) :echiqier ```
 
-éféctue tout les modification pour nésésair pour apliquer le coup
-soie:
+effectue toutes les modifications nécéssaire à l'application du coup.
+soit:
 	-modifier l'échiquier
 	-tour +1
-	-stoquer l'ancein echiqier
+	-stocker l'ancien echiquier
 	-verifier si etat_partie a besoin d'etre modifier
 	
 et renvoie le nouvel éhiquier
