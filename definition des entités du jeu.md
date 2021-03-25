@@ -38,7 +38,7 @@ ex:
 le mouvement d'une piece est définie par un tuple(contenant 2 tuple( le premier contenant les cordonées de départ de la pièce et le second tuple les cordonnées d'arrivée))
 
 ex:
-(("A5")("B6"))
+(("A","5"),("B,"6"))
 
 ##etat_partie
 
@@ -120,7 +120,7 @@ Renvoie le coup du joueur si c'est son tour et l'enrengistrer dans une variable 
 
 ```6- verifierCoup(self,coup_joueur)```
 
-Appelles la fonction du moteur qui sert à vérifier si le coup en paramètre est valide. Si oui, mettre dans une variable coup_valide = True que le coup est valide. Sinon, afficher un message d'erreur.
+Appelles la fonction du moteur qui sert à vérifier si le coup en paramètre est valide. Si oui, mettre dans une variable coup_valide = True que le coup est valide. Sinon, afficher un message d'erreur. Traduis aussi la valeur entré ( ex : (("A5"),("B6")) ) en tuple de coups (ex : ((0,5),(1,6)) )
 
 ```7- modifierEchiquier(self,coup_valide,coup_joueur)```
 
