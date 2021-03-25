@@ -52,15 +52,15 @@ variable pouvant 1 string parmit  5 string diferante : 	"partie_en cour"
 # Les Class
 ## class Moteur
 
-description : cette class gére la partie.
+description : cette class gère la partie. 
 
 ``` variable echiquier```
 
-L'echiquier qui représente le status de la partie.
+L'echiquier qui représente le status de la partie. 
 
 ``'variable etat_partie```
 
-```méthdoe get-Echiqier() : echiqier```
+```méthode get-Echiqier() : echiqier```
 
 renvois echiquier.
 
@@ -76,7 +76,7 @@ place tout les paramétre  dasn leur état de base
 
 Renvois True si le mouvement présenté est possible, sinon renvois False.
 
-```methode gestion_coup_valider(mouvememnt) :echiqier ```
+```methode gestion_coup_valider(mouvement) :echiqier ```
 
 éféctue tout les modification pour nésésair pour apliquer le coup
 soie:
