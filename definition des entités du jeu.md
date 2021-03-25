@@ -80,10 +80,10 @@ Renvois True si le mouvement présenté est possible, sinon renvois False.
 
 effectue toutes les modifications nécéssaire à l'application du coup.
 soit:
-	-modifier l'échiquier
-	-tour +1
-	-stocker l'ancien echiquier
-	-verifier si etat_partie a besoin d'etre modifier
+- modifier l'échiquier
+- tour +1
+- stocker l'ancien echiquier
+- verifier si etat_partie a besoin d'etre modifier
 	
 et renvoie le nouvel éhiquier
 
