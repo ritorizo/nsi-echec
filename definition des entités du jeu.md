@@ -23,10 +23,10 @@ ex : une tour noire "TN"
 l'échiquier est définie par une liste (de 8 liste (de 8 liste (qui seront soit vide, soit contenant une string de 2 caractère(un pion))))et un int qui sera le numéro du tour   
 
 ex :
-- \[[[TB][][KN][][][][][]] [[][][][][QB][][][]] [[][][][][][][][]] [[][][][][][][][]] [[][][][][][KB][][]] [[][][][][][][][]] [[PB][][][][][][][]] [[][][][][][][][]] 24\]
+- \[[[TB],[],[KN],[],[],[],[],[]], [[],[],[],[],[QB],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[KB],[],[]], [[],[],[],[],[],[],[],[]], [[PB],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], 24]\
 
 
-##Les cordonnées d'une pièce
+## Les cordonnées d'une pièce
 
 les cordonnées d'une pièce sont définie par un tuple (contenant une lettre majuscule(A  B  C  D  E  F  G  H)et un chifre(1  2  3  4  5  6  7  8))
 
