@@ -11,3 +11,5 @@ def sauvegarde(echiquier_a_sauvegarder):
     fichier.write( '\n' )
     fichier.close
     print("Sauvegarde du tour effectué")
+
+    # cette fonction sauvegarde l'échiquier.
