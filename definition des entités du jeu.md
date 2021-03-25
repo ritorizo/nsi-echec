@@ -124,7 +124,7 @@ Appelles la fonction du moteur qui sert à vérifier si le coup en paramètre es
 
 ```7- traducteurHumainMachine(self,coup_joueur)```
 
-Traduit le mouvement du joueur pour la machine ( ex : (("A5"),("B6")) ) en tuple de coups (ex : ((0,5),(1,6)) ).
+Traduit les coordonées entrée par le joueur pour la machine ( ex : ("A5")) en tuple de coups (ex : (0,5)) ). Le processus est répété autant de fois que nécéssaire.
 
 ```8- messageErreur```
 
