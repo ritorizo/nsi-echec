@@ -76,7 +76,7 @@ place tout les paramétre  dasn leur état de base
 
 Renvois True si le mouvement présenté est possible, sinon renvois False.
 
-```methode gestion_coup_valider(mouvement) :echiqier ```
+```methode gestionCoupValider(mouvement) :echiqier ```
 
 effectue toutes les modifications nécéssaire à l'application du coup.
 soit:
