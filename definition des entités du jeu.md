@@ -31,14 +31,14 @@ ex :
 les cordonnées d'une pièce sont définie par un tuple (contenant une lettre majuscule(A  B  C  D  E  F  G  H)et un chifre(1  2  3  4  5  6  7  8))
 
 ex:
-(B5)
+("B5")
 
 ##Les mouvements de pièces
 
 le mouvement d'une piece est définie par un tuple(contenant 2 tuple( le premier contenant les cordonées de départ de la pièce et le second tuple les cordonnées d'arrivée))
 
 ex:
-((A5)(B6))
+(("A5")("B6"))
 
 ##etat_partie
 
