@@ -120,8 +120,20 @@ Renvoie le coup du joueur si c'est son tour et l'enrengistrer dans une variable 
 
 ```6- verifierCoup(self,coup_joueur)```
 
-Appelles la fonction du moteur qui sert à vérifier si le coup en paramètre est valide. Si oui, mettre dans une variable coup_valide = True que le coup est valide. Sinon, afficher un message d'erreur. Traduis aussi la valeur entré ( ex : (("A5"),("B6")) ) en tuple de coups (ex : ((0,5),(1,6)) )
+Appelles la fonction du moteur qui sert à vérifier si le coup en paramètre est valide. Sinon, appelle une fonction qui affiche un message d'erreur. Appelle aussi une fonction qui "traduit" le mouvement ( ex : (("A5"),("B6")) ) en tuple de coups (ex : ((0,5),(1,6)) ).
 
-```7- modifierEchiquier(self,coup_valide,coup_joueur)```
+```7- traducteurHumainMachine(self,coup_joueur)```
 
-Si coup_valide == True, appeler la fonction du moteur qui modifie l'echiquier avec comme paramètre coup_joueur, et mettre coup_valide = False, et enrengistrer le nouveau echiquier à la place de l'ancien.
+Traduit le mouvement du joueur pour la machine ( ex : (("A5"),("B6")) ) en tuple de coups (ex : ((0,5),(1,6)) ).
+
+```8- messageErreur```
+
+Est appellée quand le coup_joueur est invalide. Affiche en conséquence un message d'erreur.
+
+```9- modifierEchiquier(self,coup_valide)```
+
+Envoie coup_valide au moteur puis appelle _mouvement_.
+
+```10- mouvement(self,coup_valide)```
+
+fait les changements sur l'échiquier graphique
