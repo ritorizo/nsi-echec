@@ -97,7 +97,7 @@ et renvoie le nouvel éhiquier
 description : cette class gére l'interface utilisateur.
 
 	
-```1- demaragge(self)```
+```1- demarage(self)```
 
 Renvoie la composition de la partie (nombre de joueurs/robots et leur couleur) et appelle init du moteur avec ce paramètre.
 
