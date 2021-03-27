@@ -42,9 +42,9 @@ ex:
 
 ##etat_partie
 
-variable pouvant 1 string parmit  5 string diferante : 	"partie_en cour"
-							"victoir_J1"
-							"victoir_J2"
+variable pouvant 1 string parmit  5 string diferante : 	"partie_en cours"
+							"victoire_J1"
+							"victoire_J2"
 							"pat"
 							"égalité"
 
@@ -72,7 +72,7 @@ renvoie etat_partie
 
 ```methode lancement(string) : rien ``` 
 
-place tout les paramétre  dasn leur état de base
+place tout les paramètres dans leur état de base
 
 ```methode coupValide(mouvement) : boolean```
 
@@ -87,12 +87,9 @@ soit:
 - stocker l'ancien echiquier
 - verifier si etat_partie a besoin d'etre modifier
 	
+```méthode connaitre_tour(echiquier) : "Blanc" ou "Noir"```
 
-
-
-
-
-
+permet de connaître à qui c'est le tour actuellement (sert par exemple à savoir qui est en échec).
 
 ## class Interface
 	
