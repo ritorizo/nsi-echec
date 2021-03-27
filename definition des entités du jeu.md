@@ -35,10 +35,10 @@ ex:
 
 ##Les mouvements de pièces
 
-le mouvement d'une piece est définie par un tuple(contenant 2 tuple( le premier contenant les cordonées de départ de la pièce et le second tuple les cordonnées d'arrivée))
+le mouvement d'une piece est définie par un tuple de tuple contenant les coordonées de départs et d'arrivées.
 
 ex:
-(("A","5"),("B,"6"))
+- (("A","5"),("B,"6"))
 
 ##etat_partie
 
@@ -58,7 +58,9 @@ description : cette class gère la partie.
 
 L'echiquier qui représente le status de la partie. 
 
-``'variable etat_partie```
+```variable etat_partie```
+
+donne l'état de la partie sous la forme de variable : si il y a pat, échec, échec et mat, égalité ou rien.
 
 ```méthode get-Echiqier() : echiqier```
 
