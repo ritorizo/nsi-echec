@@ -32,7 +32,7 @@ class Moteur:
             if (self.echiquier[x1][y1][1] != self.couleurTour()):
                 result = False
    
-)           # Vérifie que le joueur n'ésaye pas de manger sa propre piéce.
+            # Vérifie que le joueur n'ésaye pas de manger sa propre piéce.
             elif (self.echiquier[x2][y2][1] == self.couleurTour()):
                 result = False
 				
@@ -40,7 +40,50 @@ class Moteur:
             elif ( (x1 == x2) and (y1 == y2) ):
                 result = False 
 
-       return result 
+		# Fait les vérifications spécifiques aux piéces 
+		piece = self.echiquier[0][x1][y1][0]
+		if (result == True):
+			
+			# Verif roi <fait>
+			if (piece == 'K'): 
+				if (4 < ((x1-x2)**2+(y1-y2)**2)):
+					result = False
+			
+			# Verif reinne
+			elif (piece == 'Q'):
+				 #TODO
+			
+			# Verif fou
+			elif (piece == 'F'):
+				#TODO
+							
+			# Verif cavalier <fait>
+			elif (piece == 'C'):
+				if !(( (x1-x2)**2 + (y1-y2)**2 ) == 13 ): 
+					result = False
+			
+			#Verif tour
+			elif (piece == 'T'):
+				#TODO
+			
+			# Verif pion
+			elif (piece == 'P'):
+				# Vérifie le sens du plateau
+				facteurSens = 1
+				if (self.couleurTour == 'N'):
+					facteurSens = -1
+					
+				mouv = ((x1-x2), (y1-y2)*facteurSens)
+				
+				if (mouv == (0, 1)):
+					# C good
+				elif (mouv == ())
+				
+				
+				
+			
+        return result
+	  
 
 def estDiagonale(mouv): 
     result = False
@@ -49,13 +92,6 @@ def estDiagonale(mouv):
 
     return result
 
-
-def estCavlier(mouv):
-    result = False
-    if (( (mouv[0][0]-mouv[1][0])**2 + (mouv[0][1]-mouv[1][1])**2 ) == 13 ): # Si (x1-x2)**2 + (y1-y2)**2 == 13
-        result = True
-
-    return result
 
 def estDroit(mouv):
     result = False
