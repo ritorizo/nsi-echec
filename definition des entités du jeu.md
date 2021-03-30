@@ -78,7 +78,7 @@ place tout les paramètres dans leur état de base
 
 Renvois True si le mouvement présenté est possible, sinon renvois False.
 
-```methode gestionCoupValider(mouvement) :echiqier ```
+```methode gestionCoupValider(mouvement) : echiqier ```
 
 effectue toutes les modifications nécéssaire à l'application du coup.
 soit:
@@ -90,6 +90,14 @@ soit:
 ```méthode connaitre_tour(echiquier) : "Blanc" ou "Noir"```
 
 permet de connaître à qui c'est le tour actuellement (sert par exemple à savoir qui est en échec).
+
+```méthode est_en_danger(coordonées_de_pièce): liste de tuples```
+
+ permet de connaitre quels pièces peuvent manger la pièce analysé. Renvoie une liste coordonées des pièces qui peuvent manger la pièce mise en paramètre (ex : [(0,7),(7,7)])
+
+ ```méthode getNextPiece(coordonées_de_pièce, direction_a_analyser): coordonées de la pièce la plus proche dans la direction choisi```
+ 
+ permet de savoir où se situe la pièce la plus proche dans la direction choisi. La direction est choisi selon ces chiffres : x,y. Exemple, pour aller dans la diagonale de droite vers le bas, on entre (-1,1).
 
 ## class Interface
 	

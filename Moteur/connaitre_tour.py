@@ -1,6 +1,6 @@
 echiquier =[[["TB"],[],["KN"],[],[],[],[],[]], [[],[],[],[],["QB"],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],["KB"],[],[]], [[],[],[],[],[],[],[],[]], [['PB'],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], 1] # il s'agit d'un exemple d'échiquier.
 
-def connaitre_tour(echiquier_a_abalyser):
+def connaitre_tour(echiquier_a_analyser):
     '''
     Permet de savoir à qui est le tour sur l'échiquier.
     ----------
