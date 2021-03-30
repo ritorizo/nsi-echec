@@ -1,5 +1,5 @@
 # mouvement : ((x1, y1), (x2, y2))
-class Moteur
+class Moteur:
    
   def couleurTour(self):
        """Cette fonction renvois la couleur du joueur dont c'est le tour
@@ -21,7 +21,7 @@ class Moteur
        result = True
    
        for i in (x1, y1, y2, y2):
-           if !(0 <= i <= 8)
+           if !(0 <= i <= 7)
                result = False
    
        if (result == True)
@@ -30,7 +30,7 @@ class Moteur
        elif (self.echiquier[x1][y1][1] != self.couleurTour())
            result = False
    
-       # Vérifie que le joueur n'ésaye pas de manger sa propre piéce.
+       # Vérifie que le joueur n'essaye pas de manger sa propre piéce.
        elif (self.echiquier[x2][y2][1] == self.couleurTour())
            result = False
    
