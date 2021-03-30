@@ -32,10 +32,10 @@ class Moteur:
             if (self.echiquier[x1][y1][1] != self.couleurTour()):
                 result = False
    
-            # Vérifie que le joueur n'ésaye pas de manger sa propre piéce.
+)           # Vérifie que le joueur n'ésaye pas de manger sa propre piéce.
             elif (self.echiquier[x2][y2][1] == self.couleurTour()):
                 result = False
-   
+				
             # Vérifique que la piéce ne reste pas sur place.
             elif ( (x1 == x2) and (y1 == y2) ):
                 result = False 
