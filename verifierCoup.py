@@ -1,6 +1,7 @@
-# mouvement : ((x1, y1), (x2, y2))
+#
+mouvement : ((x1, y1), (x2, y2))
 class Moteur:
-   
+
     def couleurTour(self):
         """Cette méthdoe renvois la couleur du joueur dont c'est le tour
         ----
