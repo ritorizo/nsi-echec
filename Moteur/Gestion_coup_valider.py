@@ -1,10 +1,13 @@
 from Sauvegarde import sauvegarde
 
+# la fonction suivante bourre : 
+
+def EchecEtMat(mouvement):
+    return True, "Blanc"
+
 echiquier = [[["TB"],[],["KN"],[],[],[],[],[]], [[],[],[],[],["QB"],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],["KB"],[],[]], [[],[],[],[],[],[],[],[]], [['PB'],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], 0] # il s'agit d'un exemple d'échiquier.
 
 def gestion_coup_valider(mouvement): # mouvement entrée sous la forme ((0,5),(1,6))
-    
-    deplacement = mouvement
 
     sauvegarde(echiquier)
 
@@ -14,6 +17,9 @@ def gestion_coup_valider(mouvement): # mouvement entrée sous la forme ((0,5),(1
     
     echiquier[-1]+=1 # on ajoute 1 au compteur de tour.
 
-    return echiquier, deplacement
+    if EchecEtMaths(mouvement) == True:
+        #  modifie etat_partie et lui indique la couleur du perdant
+
+    return echiquier
 
 print(gestion_coup_valider(((0,0),(0,1))))
