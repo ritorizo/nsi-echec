@@ -63,11 +63,11 @@ L'echiquier qui représente le status de la partie.
 
 donne l'état de la partie sous la forme de variable : si il y a pat, échec, échec et mat, égalité ou rien.
 
-```méthode get-Echiqier() : echiqier```
+```méthode getEchiqier() : echiqier```
 
 renvois echiquier.
 
-```methode get_etat-partie```
+```methode getEtatPartie```
 
 renvoie etat_partie
 
