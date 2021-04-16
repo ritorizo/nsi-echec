@@ -5,6 +5,7 @@
 #!/usr/bin/python
 # -*- coding: ascii -*-
 import pygame # pip install pygame
+from path import Path
 pygame.init()
 class Interface :
   taille_ecran = (800,450)
@@ -21,29 +22,42 @@ class Interface :
   GREEN = (0,255,0)
   VIDE = (207,185,151)
 
-  img_CB = pygame.image.load("Interface\imgs\CB.png")
+  dir = Path(__file__)
+  img_path = dir.abspath().dirname() / "imgs" / "CB.png"
+  img_CB = pygame.image.load(img_path)
   img_CB = pygame.transform.scale(img_CB,(taille_case,taille_case))
-  img_CN = pygame.image.load("Interface\imgs\CN.png")
+  img_path = dir.abspath().dirname() / "imgs" / "CN.png"
+  img_CN = pygame.image.load(img_path)
   img_CN = pygame.transform.scale(img_CN,(taille_case,taille_case))
-  img_FB = pygame.image.load("Interface\imgs\FB.png")
+  img_path = dir.abspath().dirname() / "imgs" / "FB.png"
+  img_FB = pygame.image.load(img_path)
   img_FB = pygame.transform.scale(img_FB,(taille_case,taille_case))
-  img_FN = pygame.image.load("Interface\imgs\FN.png")
+  img_path = dir.abspath().dirname() / "imgs" / "FN.png"
+  img_FN = pygame.image.load(img_path)
   img_FN = pygame.transform.scale(img_FN,(taille_case,taille_case))
-  img_KB = pygame.image.load("Interface\imgs\KB.png")
+  img_path = dir.abspath().dirname() / "imgs" / "KB.png"
+  img_KB = pygame.image.load(img_path)
   img_KB = pygame.transform.scale(img_KB,(taille_case,taille_case))
-  img_KN = pygame.image.load("Interface\imgs\KN.png")
+  img_path = dir.abspath().dirname() / "imgs" / "KN.png"
+  img_KN = pygame.image.load(img_path)
   img_KN = pygame.transform.scale(img_KN,(taille_case,taille_case))
-  img_PB = pygame.image.load("Interface\imgs\PB.png")
+  img_path = dir.abspath().dirname() / "imgs" / "PB.png"
+  img_PB = pygame.image.load(img_path)
   img_PB = pygame.transform.scale(img_PB,(taille_case,taille_case))
-  img_PN = pygame.image.load("Interface\imgs\PN.png")
+  img_path = dir.abspath().dirname() / "imgs" / "PN.png"
+  img_PN = pygame.image.load(img_path)
   img_PN = pygame.transform.scale(img_PN,(taille_case,taille_case))
-  img_QB = pygame.image.load("Interface\imgs\QB.png")
+  img_path = dir.abspath().dirname() / "imgs" / "QB.png"
+  img_QB = pygame.image.load(img_path)
   img_QB = pygame.transform.scale(img_QB,(taille_case,taille_case))
-  img_QN = pygame.image.load("Interface\imgs\QN.png")
+  img_path = dir.abspath().dirname() / "imgs" / "QN.png"
+  img_QN = pygame.image.load(img_path)
   img_QN = pygame.transform.scale(img_QN,(taille_case,taille_case))
-  img_TB = pygame.image.load("Interface\imgs\TB.png")
+  img_path = dir.abspath().dirname() / "imgs" / "TB.png"
+  img_TB = pygame.image.load(img_path)
   img_TB = pygame.transform.scale(img_TB,(taille_case,taille_case))
-  img_TN = pygame.image.load("Interface\imgs\TN.png")
+  img_path = dir.abspath().dirname() / "imgs" / "TN.png"
+  img_TN = pygame.image.load(img_path)
   img_TN = pygame.transform.scale(img_TN,(taille_case,taille_case))
 
   echiquier = [[["TN"],["CN"],["FN"],["QN"],["KN"],["FN"],["CN"],["TN"]],[["PN"],["PN"],["PN"],["PN"],["PN"],["PN"],["PN"],["PN"]],[[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[]],[["PB"],["PB"],["PB"],["PB"],["PB"],["PB"],["PB"],["PB"]],[["TB"],["CB"],["FB"],["QB"],["KB"],["FB"],["CB"],["TB"]],0]
@@ -283,5 +297,5 @@ class Interface :
           
 
 interface = Interface()
-#print(interface.menuDemarrage())
+print(interface.menuDemarrage())
 interface.generationEchiquier()
