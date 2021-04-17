@@ -227,75 +227,113 @@ class Interface :
     co_chiffres = ["1","2","3","4","5","6","7","8"]
     police = pygame.font.Font(None,self.taille_case)
 
-    running = True
-    while running == True :
-      pygame.display.flip()
-      if gene_case == False :
-        for y in range(8) :
-          for x in range(8) :
-            if blanc == True : 
-              pygame.draw.rect(self.screen,self.WHITE,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+    if gene_case == False :
+      for y in range(8) :
+        for x in range(8) :
+          if blanc == True : 
+            pygame.draw.rect(self.screen,self.WHITE,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+            blanc = False
+          elif blanc == False:
+            pygame.draw.rect(self.screen,self.BLACK,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+            blanc = True
+          if x == 7:
+            if blanc == True:
               blanc = False
-            elif blanc == False:
-              pygame.draw.rect(self.screen,self.BLACK,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+            elif blanc == False :
               blanc = True
-            if x == 7:
-              if blanc == True:
-                blanc = False
-              elif blanc == False :
-                blanc = True
-      gene_case = True
-      if gene_pion == False :
-        for y in range(8) :
-          for x in range(8) :
-            pion_candidat = self.echiquier[y][x]
-            if len(pion_candidat) >= 1 :
-              pion_candidat = pion_candidat[0]
-              if pion_candidat == "CB" :
-                self.screen.blit(self.img_CB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
-              if pion_candidat == "CN" :
-                self.screen.blit(self.img_CN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
-              if pion_candidat == "FB" :
-                self.screen.blit(self.img_FB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
-              if pion_candidat == "FN" :
-                self.screen.blit(self.img_FN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
-              if pion_candidat == "KB" :
-                self.screen.blit(self.img_KB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
-              if pion_candidat == "KN" :
-                self.screen.blit(self.img_KN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
-              if pion_candidat == "PB" :
-                self.screen.blit(self.img_PB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
-              if pion_candidat == "PN" :
-                self.screen.blit(self.img_PN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
-              if pion_candidat == "QB" :
-                self.screen.blit(self.img_QB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
-              if pion_candidat == "QN" :
-                self.screen.blit(self.img_QN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
-              if pion_candidat == "TB" :
-                self.screen.blit(self.img_TB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
-              if pion_candidat == "TN" :
-                self.screen.blit(self.img_TN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
-      gene_pion = True
-      if gene_co == False :
+    gene_case = True
+    if gene_pion == False :
+      for y in range(8) :
         for x in range(8) :
-          co = police.render(co_chiffres[x], True, self.BLACK )
-          self.screen.blit(co,(self.marge,(self.taille_ecran[1]-(self.taille_case+(self.taille_case*x))+10)))
-        for x in range(8) :
-          co = police.render(co_lettres[x],True,self.BLACK)
-          self.screen.blit(co,(((self.marge+self.taille_case)+self.taille_case*x+10),10))
-      gene_co = False
+          pion_candidat = self.echiquier[y][x]
+          if len(pion_candidat) >= 1 :
+            pion_candidat = pion_candidat[0]
+            if pion_candidat == "CB" :
+              self.screen.blit(self.img_CB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+            if pion_candidat == "CN" :
+              self.screen.blit(self.img_CN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+            if pion_candidat == "FB" :
+              self.screen.blit(self.img_FB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+            if pion_candidat == "FN" :
+              self.screen.blit(self.img_FN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+            if pion_candidat == "KB" :
+              self.screen.blit(self.img_KB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+            if pion_candidat == "KN" :
+              self.screen.blit(self.img_KN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+            if pion_candidat == "PB" :
+              self.screen.blit(self.img_PB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+            if pion_candidat == "PN" :
+              self.screen.blit(self.img_PN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+            if pion_candidat == "QB" :
+              self.screen.blit(self.img_QB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+            if pion_candidat == "QN" :
+              self.screen.blit(self.img_QN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+            if pion_candidat == "TB" :
+              self.screen.blit(self.img_TB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+            if pion_candidat == "TN" :
+              self.screen.blit(self.img_TN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+    gene_pion = True
+    if gene_co == False :
+      for x in range(8) :
+        co = police.render(co_chiffres[x], True, self.BLACK )
+        self.screen.blit(co,(self.marge,(self.taille_ecran[1]-(self.taille_case+(self.taille_case*x))+10)))
+      for x in range(8) :
+        co = police.render(co_lettres[x],True,self.BLACK)
+        self.screen.blit(co,(((self.marge+self.taille_case)+self.taille_case*x+10),10))
+    gene_co = False
 
-      for event in pygame.event.get():
-        if event.type == pygame.QUIT : 
-          running = False
-          pygame.quit()
-          print("Fermeture")
+  def partieFini(self,etat_partie) :
+    police = pygame.font.Font(None,40)
+
+    text_fin = police.render("Partie terminee",True,self.BLACK)
+    texte_vic_noir = police.render("Le joueur noir a gagne",True,self.BLACK)
+    texte_vic_blanc = police.render("Le joueur blanc a gagne",True,self.BLACK)
+
+    taille_tf = text_fin.get_rect()
+    co_tf = ((self.taille_ecran[0]-taille_tf[2])/2,(self.taille_ecran[1]-taille_tf[3]*2)/2)
+
+    taille_tvn = texte_vic_noir.get_rect()
+    co_tvn = ((self.taille_ecran[0]-taille_tvn[2])/2,(self.taille_ecran[1]-taille_tvn[3]*2)/2+taille_tvn[3])
+
+    taille_tvb = texte_vic_blanc.get_rect()
+    co_tvb = ((self.taille_ecran[0]-taille_tvb[2])/2,(self.taille_ecran[1]-taille_tvb[3]*2)/2+taille_tvb[3])
+
+    
+    if etat_partie == "Blancaperdu" or etat_partie == "Noiraperdu" :
+      print(etat_partie)
+      self.screen.fill(self.GRAY)
+      #print("La partie est terminé")
+      if etat_partie == "Blancaperdu" :
+        self.etat = "Noir_victoire"
+      if etat_partie == "Noiraperdu" :
+        self.etat = "Blanc_victoire"
+
+      print(self.etat)
+      if self.etat == "Noir_victoire" :
+        self.screen.blit(text_fin,co_tf)
+        self.screen.blit(texte_vic_noir,co_tvn)
+
+      if self.etat == "Blanc_victoire" :
+        self.screen.blit(text_fin,co_tf)
+        self.screen.blit(texte_vic_blanc,co_tvb)
 
     
 
 
-          
-
+test_fini = False          
 interface = Interface()
-print(interface.menuDemarrage())
-interface.generationEchiquier()
+#print(interface.menuDemarrage())
+running = True
+while running == True :
+  pygame.display.flip()
+  #interface.generationEchiquier()
+  if test_fini == False :
+    partie = input("test : ")
+    interface.partieFini(partie)
+    test_fini = True
+
+  for event in pygame.event.get():
+        if event.type == pygame.QUIT : 
+          running = False
+          pygame.quit()
+          print("Fermeture")
