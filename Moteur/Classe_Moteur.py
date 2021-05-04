@@ -50,13 +50,16 @@ class Moteur:
             if self.echiquier[0][x][7] == ["PB"]:
                 self.echiquier[0][x][7] = ["QB"]
         
-        self.echiquier[-1]+= 1 # on ajoute 1 au compteur de tour.
 
-        if self.echecEtMaths(self.connaitreTour(self.echiquier),mouvement) == True:
+        if self.echecEtMaths(self.connaitreTour) == True:
             if self.connaitreTour(self.echiquier) == "Blanc":
                 self.etat_partie = "Noir a perdu"
             if self.connaitreTour(self.echiquier) == "Noir":
                 self.etat_partie = "Blanc a perdu"
+
+
+        self.echiquier[-1]+= 1 # on ajoute 1 au compteur de tour.
+
 
         print("gestionCoupValider effectué")
 
