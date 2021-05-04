@@ -6,7 +6,15 @@
 # -*- coding: ascii -*-
 import pygame # pip install pygame
 from path import Path
+import tkinter as tk
+from tkinter import simpledialog
+from tkinter import messagebox
 pygame.init()
+class fauxMoteur :
+  coup_joueur = ()
+  def coupRobot(self) :
+    self.coup_joueur = (("A","5"),("B","7"))
+
 class Interface :
   taille_ecran = (800,450)
   screen = pygame.display.set_mode(taille_ecran)
@@ -61,6 +69,8 @@ class Interface :
   img_TN = pygame.transform.scale(img_TN,(taille_case,taille_case))
 
   echiquier = [[["TN"],["CN"],["FN"],["QN"],["KN"],["FN"],["CN"],["TN"]],[["PN"],["PN"],["PN"],["PN"],["PN"],["PN"],["PN"],["PN"]],[[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[]],[["PB"],["PB"],["PB"],["PB"],["PB"],["PB"],["PB"],["PB"]],[["TB"],["CB"],["FB"],["QB"],["KB"],["FB"],["CB"],["TB"]],0]
+  mode = ("J","J")
+  coup_joueur = ()
   etat = "rien"
   def menuDemarrage(self) :
 
@@ -131,7 +141,7 @@ class Interface :
 
       if self.etat == "mode jcr" and choix_mode == False:
         #print("Mode joueur contre joueur")
-        mode = ("J","R")
+        self.mode = ("J","R")
         #print(mode)
         button_modejcr = police.render("Mode joueur contre robot ", True, self.GREEN) 
         self.screen.blit(button_modejcr,co_button_jcr)
@@ -141,7 +151,7 @@ class Interface :
 
       if self.etat == "mode jcj" and choix_mode == False:
         #print("Mode joueur contre joueur")
-        mode = ("J","J")
+        self.mode = ("J","J")
         #print(mode)
         button_modejcr = police.render("Mode joueur contre robot ", True, self.GRAY) 
         self.screen.blit(button_modejcr,co_button_jcr)
@@ -167,7 +177,7 @@ class Interface :
         self.screen.blit(txt_choix_couleur,co_txt2)
         self.screen.blit(button_couleur_blanc,co_button_blanc)
         self.screen.blit(button_couleur_noir,co_button_noir)
-        mode = ("R","J")
+        self.mode = ("R","J")
 
       if self.etat == "robot noir" :
         txt_choix_couleur = police.render("Le robot doit-il commencer ?", True, self.BLACK)
@@ -176,7 +186,7 @@ class Interface :
         self.screen.blit(txt_choix_couleur,co_txt2)
         self.screen.blit(button_couleur_blanc,co_button_blanc)
         self.screen.blit(button_couleur_noir,co_button_noir)
-        mode = ("J","R")
+        self.mode = ("J","R")
 
       if self.etat == "mode jcj" or self.etat == "robot blanc" or self.etat == "robot noir" :
         choix_choisi = True
@@ -208,7 +218,7 @@ class Interface :
               self.etat = "robot noir"
 
             if mouse_pos[0] >= co_button_valider[0] and mouse_pos[0] <= co_button_valider[0] + taille_button_valider[2] and mouse_pos[1] >= co_button_valider[1] and mouse_pos[1] <= co_button_valider[1] + taille_button_valider[3] and choix_choisi == True :
-              return mode
+              return self.mode
               print("fin")
               running = False
 
@@ -317,6 +327,31 @@ class Interface :
         self.screen.blit(text_fin,co_tf)
         self.screen.blit(texte_vic_blanc,co_tvb)
 
+  def appelerRobot(self,coup_robot) :
+    if self.mode[self.echiquier[8]%2] == "R" :
+      return coup_robot
+
+  def demanderCoup(self) :
+    if self.mode[self.echiquier[8]%2] == "J" :
+      ROOT = tk.Tk()
+      ROOT.withdraw()
+      self.coup_joueur = simpledialog.askstring(title="Echecs.exe",
+                                  prompt="Entrez votre mouvement")
+      print(self.coup_joueur)
+      return self.coup_joueur
+      
+  def messageErreur(self,verifierCoup) :
+    if verifierCoup == False :
+      messagebox.showinfo("Echecs.exe", "Erreur : votre coup est invalide")
+
+  def mouvement(self,coup_joueur) :
+    # ((3,4),(5,2))
+    self.echiquier[coup_joueur[1][1]][coup_joueur[1][0]] = self.echiquier[coup_joueur[0][1]][coup_joueur[0][0]]
+    self.echiquier[coup_joueur[0][1]][coup_joueur[0][0]] = []
+
+      
+
+ 
     
 
 
@@ -326,10 +361,11 @@ interface = Interface()
 running = True
 while running == True :
   pygame.display.flip()
-  #interface.generationEchiquier()
+  interface.generationEchiquier()
   if test_fini == False :
-    partie = input("test : ")
-    interface.partieFini(partie)
+    interface.mouvement(((0,7),(0,0)))
+    #partie = input("test : ")
+    #interface.partieFini(partie)
     test_fini = True
 
   for event in pygame.event.get():
@@ -337,3 +373,6 @@ while running == True :
           running = False
           pygame.quit()
           print("Fermeture")
+
+#interface.demanderCoup()
+#interface.messageErreur(False)
