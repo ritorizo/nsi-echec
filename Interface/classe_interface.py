@@ -14,6 +14,10 @@ class fauxMoteur :
   coup_joueur = ()
   def coupRobot(self) :
     self.coup_joueur = (("A","5"),("B","7"))
+  def coupValide(self,mouvement):
+    return True
+  def gestionCoupValide(self,mouvement) :
+    return True
 
 class Interface :
   taille_ecran = (800,450)
@@ -339,7 +343,37 @@ class Interface :
                                   prompt="Entrez votre mouvement")
       print(self.coup_joueur)
       return self.coup_joueur
+
+  def traducteurHumainMachine(self,coordonnees) :
+    a=coordonnees[0]
+    b=coordonnees[1]
+        
+            
+    if a=="a" or a =="A":
+      cordone_traduit=(0,int(b)-1)
+    elif a == "b" or a =="B":
+      cordone_traduit=(1,int(b)-1)
+    elif a=="c" or a =="C":
+      cordone_traduit=(2,int(b)-1)
+    elif a=="d" or a =="D":
+      cordone_traduit=(3,int(b)-1)
+    elif a=="e" or a =="E":
+      cordone_traduit=(4,int(b)-1)
+    elif a=="f" or a =="F":
+      cordone_traduit=(5,int(b)-1)
+    elif a=="g" or a =="G":
+      cordone_traduit=(6,int(b)-1)
+    elif a=="h" or a== "H":
+      cordone_traduit=(7,int(b)-1)
+
+    return cordone_traduit
       
+  def verifierCoup(self,coup_joueur) :
+    coup_traduit = (self.traducteurHumainMachine(coup_joueur[0]),self.traducteurHumainMachine(coup_joueur[1]))
+    faux_moteur = fauxMoteur()
+    if faux_moteur.coupValide(coup_traduit) == False :
+
+
   def messageErreur(self,verifierCoup) :
     if verifierCoup == False :
       messagebox.showinfo("Echecs.exe", "Erreur : votre coup est invalide")
@@ -361,9 +395,9 @@ interface = Interface()
 running = True
 while running == True :
   pygame.display.flip()
-  interface.generationEchiquier()
+  #interface.generationEchiquier()
   if test_fini == False :
-    interface.mouvement(((0,7),(0,0)))
+    #interface.mouvement(((0,7),(0,0)))
     #partie = input("test : ")
     #interface.partieFini(partie)
     test_fini = True
@@ -375,4 +409,6 @@ while running == True :
           print("Fermeture")
 
 #interface.demanderCoup()
+#print(interface.traducteurHumainMachine(("A",5)))
+print(interface.verifierCoup((("A",5),("B",3))))
 #interface.messageErreur(False)
