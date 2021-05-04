@@ -42,7 +42,13 @@ class Moteur:
         # déplacement du pion avec les coordonées entré par mouvement. (sur les deux prochaines lignes)
         self.echiquier[0][mouvement[1][0]][mouvement[1][1]]=self.echiquier[0][mouvement[0][0]][mouvement[0][1]]
         self.echiquier[0][mouvement[0][0]][mouvement[0][1]]=[]
-
+        
+        for x in range(7): # vérifie si un pion va à dame
+            if self.echiquier[0][x][0] == ["PN"]:
+                self.echiquier[0][x][0] = ["QN"]
+            
+            if self.echiquier[0][x][7] == ["PB"]:
+                self.echiquier[0][x][7] = ["QB"]
         
         self.echiquier[-1]+= 1 # on ajoute 1 au compteur de tour.
 
