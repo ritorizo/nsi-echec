@@ -96,9 +96,13 @@ permet de connaître à qui c'est le tour actuellement (sert par exemple à savo
 
  permet de connaitre quels pièces peuvent manger la pièce analysé. Renvoie une liste coordonées des pièces qui peuvent manger la pièce mise en paramètre (ex : [(0,7),(7,7)])
 
- ```méthode getNextPiece(coordonées_de_pièce, direction_a_analyser): coordonées de la pièce la plus proche dans la direction choisi```
+ ```méthode getNextPiece(coordonées_de_pièce, direction_a_analyser): coordonées de la pièce la plus proche dans la direction choisi par rapport à une case choisi```
  
  permet de savoir où se situe la pièce la plus proche dans la direction choisi. La direction est choisi selon ces chiffres : x,y. Exemple, pour aller dans la diagonale de droite vers le bas, on entre (-1,1).
+ 
+ ```méthode toutesCasesAvantLaProchainePiece(coordonées_de_pièce, direction_a_analyser): tableau contenant toutes les cases vide entre deux pièces dans la direction choisi```
+
+similaire à getNextPiece, cette méthode permet de connaitre toutes les cases parcouru entre la coordonée de pièce choisi et la pièce rencontré dans la direction indiqué. Cette méthode renvoie toutes les cases **vides**
 
 ## class Interface
 	
