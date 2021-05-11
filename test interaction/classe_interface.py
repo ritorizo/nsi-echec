@@ -10,7 +10,7 @@ import tkinter as tk
 from tkinter import simpledialog
 from tkinter import messagebox
 from bot import *
-from moteur import *
+from moteur final import *
 pygame.init()
 class fauxMoteur :
   coup_joueur = ()
@@ -20,6 +20,10 @@ class fauxMoteur :
     return True
   def gestionCoupValide(self,mouvement) :
     return True
+
+class Bot : 
+  def coupBot(self) :
+    return (("4,5"),("3,2"))
 
 class Interface :
   taille_ecran = (800,450)
@@ -340,7 +344,16 @@ class Interface :
 
   def appelerRobot(self) :
     if self.mode[self.echiquier[1]%2] == "R" :
-      self.bot.
+      self.coup_joueur = self.bot.coupBot()
+      self.moteur.gestionCoupValider(self.coup_joueur)
+
+  def verifierCoup(self,coup_joueur) :
+    coup_traduit = (self.traducteurHumainMachine(coup_joueur[0]),self.traducteurHumainMachine(coup_joueur[1]))
+    faux_moteur = fauxMoteur()
+    if faux_moteur.coupValide(coup_traduit) == False :
+      self.messageErreur()
+    if faux_moteur.coupValide(coup_traduit) ==  True :
+      self.moteur.gestionCoupValider(coup_traduit)
 
   def demanderCoup(self) :
     if self.mode[self.echiquier[1]%2] == "J" :
@@ -349,6 +362,7 @@ class Interface :
       self.coup_joueur = simpledialog.askstring(title="Echecs.exe",
                                   prompt="Entrez votre mouvement")
       print(self.coup_joueur)
+      self.verifierCoup(self.coup_joueur)
       return self.coup_joueur
 
   def traducteurHumainMachine(self,coordonnees) :
@@ -388,14 +402,6 @@ class Interface :
     coup_traduit = (self.traducteurHumainMachine(coup_joueur[0]),self.traducteurHumainMachine(coup_joueur[1]))
      faux_moteur = fauxMoteur()
     
-      
-  def verifierCoup(self,coup_joueur) :
-    coup_traduit = (self.traducteurHumainMachine(coup_joueur[0]),self.traducteurHumainMachine(coup_joueur[1]))
-    faux_moteur = fauxMoteur()
-    if faux_moteur.coupValide(coup_traduit) == False :
-      self.messageErreur
-    if faux_moteur.coupValide(coup_traduit) ==  True :
-      self.mouvement(coup_traduit)
 
 
 
@@ -407,20 +413,22 @@ class Interface :
     
 
 
-test_fini = False          
+test_fini = False
+demaragge = False         
 interface = Interface()
 #print(interface.menuDemarrage())
 running = True
 while running == True :
   pygame.display.flip()
-  interface.demarrage
-
-  #interface.generationEchiquier()
-  if test_fini == False :
-    #interface.mouvement(((0,7),(0,0)))
-    #partie = input("test : ")
-    #interface.partieFini(partie)
-    test_fini = True
+  if demaragge = False :
+    interface.demarrage()
+    demaragge = True
+  if interface.moteur.etat_partie() == "en cours" :
+    self.generationEchiquier(interface.moteur.getEchiquier())
+    interface.appelerRobot()
+    interface.demanderCoup()
+  else :
+    interface.partieFini(interface.moteur.getEtatPartie())
 
   for event in pygame.event.get():
         if event.type == pygame.QUIT : 
@@ -430,7 +438,7 @@ while running == True :
 
 #interface.demanderCoup()
 #print(interface.traducteurHumainMachine(("A",5)))
-print(interface.verifierCoup((("A",5),("B",3))))
+#print(interface.verifierCoup((("A",5),("B",3))))
 #interface.messageErreur(False)
 #création graphique de l'échiquier
 #self.generationEchiquier(interface.moteur.getEchiquier())
