@@ -10,7 +10,7 @@ import tkinter as tk
 from tkinter import simpledialog
 from tkinter import messagebox
 from bot import *
-from moteur final import *
+from classe_Moteur import *
 pygame.init()
 class fauxMoteur :
   coup_joueur = ()
