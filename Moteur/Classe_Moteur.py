@@ -42,15 +42,24 @@ class Moteur:
         # déplacement du pion avec les coordonées entré par mouvement. (sur les deux prochaines lignes)
         self.echiquier[0][mouvement[1][0]][mouvement[1][1]]=self.echiquier[0][mouvement[0][0]][mouvement[0][1]]
         self.echiquier[0][mouvement[0][0]][mouvement[0][1]]=[]
-
         
-        self.echiquier[-1]+= 1 # on ajoute 1 au compteur de tour.
+        for x in range(7): # vérifie si un pion va à dame
+            if self.echiquier[0][x][0] == ["PN"]:
+                self.echiquier[0][x][0] = ["QN"]
+            
+            if self.echiquier[0][x][7] == ["PB"]:
+                self.echiquier[0][x][7] = ["QB"]
+        
 
-        if self.echecEtMaths(self.connaitreTour(self.echiquier),mouvement) == True:
+        if self.echecEtMaths(self.connaitreTour) == True:
             if self.connaitreTour(self.echiquier) == "Blanc":
                 self.etat_partie = "Noir a perdu"
             if self.connaitreTour(self.echiquier) == "Noir":
                 self.etat_partie = "Blanc a perdu"
+
+
+        self.echiquier[-1]+= 1 # on ajoute 1 au compteur de tour.
+
 
         print("gestionCoupValider effectué")
 
@@ -72,6 +81,30 @@ class Moteur:
                 piece_proche=piecel
                 print("mur rencontré")
         return piece_proche
+
+    def toutesCasesAvantLaProchainePiece(self,coordonées_de_pièce, direction_a_analyser):
+        piece_proche = ()
+        x = coordonées_de_pièce[0]
+        y = coordonées_de_pièce[1]
+        tableau =[]
+
+        while piece_proche == () and x <= 7 and y <= 7 and x>= 0 and x >= 0: # tant que la pièce la plus proche n'est pas trouvé et que le bord du plateau n'est pas atteint, faire :
+            x += direction_a_analyser[0]
+            y += direction_a_analyser[1]
+            piecel=(x,y)
+            tableau.append(piecel)
+
+
+            if not (x > 7 or y > 7 or x < 0 or y < 0):
+                if self.echiquier[0][x][y] != []:
+                    piece_proche = (x,y)
+
+        if tableau[-1][0] == 8:
+            del tableau[-1]
+        if tableau[-1][1] == 8:
+            del tableau[-1]
+
+        return tableau
 
 moteur = Moteur()
 print(moteur.connaitreTour(moteur.echiquier))

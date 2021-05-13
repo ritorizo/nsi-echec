@@ -39,7 +39,7 @@ ex:
 le mouvement d'une piece est définie par un tuple de tuple contenant les coordonées de départs et d'arrivées.
 
 ex:
-- (("A","5"),("B,"6"))
+- (("A","5"),("B","6"))
 
 ## etat_partie
 
@@ -88,8 +88,18 @@ soit:
 ```méthode est_en_danger(coordonées_de_pièce): liste de tuples```
 :permet de connaitre quels pièces peuvent manger la pièce analysé. Renvoie une liste coordonées des pièces qui peuvent manger la pièce mise en paramètre (ex : [(0,7),(7,7)])
 
+<<<<<<< HEAD
  ```méthode getNextPiece(coordonées_de_pièce, direction_a_analyser): coordonées de la pièce la plus proche dans la direction choisi```
 :permet de savoir où se situe la pièce la plus proche dans la direction choisi. La direction est choisi selon ces chiffres : x,y. Exemple, pour aller dans la diagonale de droite vers le bas, on entre (-1,1).
+=======
+ ```méthode getNextPiece(coordonées_de_pièce, direction_a_analyser): coordonées de la pièce la plus proche dans la direction choisi par rapport à une case choisi```
+ 
+ permet de savoir où se situe la pièce la plus proche dans la direction choisi. La direction est choisi selon ces chiffres : x,y. Exemple, pour aller dans la diagonale de droite vers le bas, on entre (-1,1).
+ 
+ ```méthode toutesCasesAvantLaProchainePiece(coordonées_de_pièce, direction_a_analyser): tableau contenant toutes les cases vide entre deux pièces dans la direction choisi```
+
+similaire à getNextPiece, cette méthode permet de connaitre toutes les cases parcouru entre la coordonée de pièce choisi et la pièce rencontré dans la direction indiqué. Cette méthode renvoie toutes les cases **vides**
+>>>>>>> 28e187a4853d35c2e075a2c601c86a11c02024ff
 
 ## class Interface
 	
