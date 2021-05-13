@@ -39,7 +39,7 @@ ex:
 le mouvement d'une piece est définie par un tuple de tuple contenant les coordonées de départs et d'arrivées.
 
 ex:
-- (("A","5"),("B,"6"))
+- (("A","5"),("B","6"))
 
 ##etat_partie
 
