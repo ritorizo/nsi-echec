@@ -107,6 +107,12 @@ class Moteur:
                         else :
                             result=False
 				
+                tmp = self.echiquier
+                tmp[0][x2][y2] = tmp[0][x1][y1]
+                tmp[0][x1][y1] = ""
+
+                if (result && (echequrAuRoi(couleur(echiquier), echiquier))):
+                    result = False
 			
         return result
 	  
@@ -132,3 +138,9 @@ def signe(x):
         return 0
     else: 
         return ( x/abs(x) )
+
+def couleur(echiquier)
+    retour = "N"
+    if ((echiquier[1] % 2) == 0)
+        retour = "B"
+    return retour

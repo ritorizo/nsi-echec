@@ -26,7 +26,7 @@ class Moteur:
         True   ou False
         """
         le_joueur_est_mat=True
-        composante_de_l_echeque=self.echequrAuRoi(joueur,self.getEchiquier())
+        composante_de_l_echeque=self.echequeAuRoi(joueur,self.getEchiquier())
         echiquier=self.getEchiquier()
         
         #esque e joueur est en echeque
@@ -139,7 +139,7 @@ class Moteur:
                     
                     
     
-    def echequrAuRoi(self,joueur,echiquier):
+    def echequeAuRoi(self,joueur,echiquier):
         """méthode de moteur qui permet de déterminer si un roi est en echeque et si oui quelle piece mette le rois en echeque    le tout dans un echiquier donné
         ______________________________
         demande:
