@@ -491,7 +491,7 @@ class Moteur:
                 self.echiquier[0][x][7] = ["QB"]
         
 
-        if self.echecEtMaths(self.connaitreTour) == True:
+        if self.echecEtMat(self.connaitreTour) == True:
             if self.connaitreTour(self.echiquier) == "Blanc":
                 self.etat_partie = "Noir a perdu"
             if self.connaitreTour(self.echiquier) == "Noir":
