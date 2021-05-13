@@ -111,7 +111,7 @@ class Moteur:
                 tmp[0][x2][y2] = tmp[0][x1][y1]
                 tmp[0][x1][y1] = ""
 
-                if (result && (echequrAuRoi(couleur(echiquier), echiquier))):
+                if (result && (echequrAuRoi(couleurTour(), echiquier))):
                     result = False
 			
         return result
