@@ -338,10 +338,6 @@ class Interface :
         self.screen.blit(text_fin,co_tf)
         self.screen.blit(texte_vic_blanc,co_tvb)
 
-  def appelerRobot(self) :
-    if self.mode[self.echiquier[1]%2] == "R" :
-      self.bot.
-
   def demanderCoup(self) :
     if self.mode[self.echiquier[1]%2] == "J" :
       ROOT = tk.Tk()
@@ -384,9 +380,7 @@ class Interface :
     self.echiquier[coup_joueur[1][1]][coup_joueur[1][0]] = self.echiquier[coup_joueur[0][1]][coup_joueur[0][0]]
     self.echiquier[coup_joueur[0][1]][coup_joueur[0][0]] = []
 
-  def modifierEchiquier(self,coup_valide) :
-    coup_traduit = (self.traducteurHumainMachine(coup_joueur[0]),self.traducteurHumainMachine(coup_joueur[1]))
-     faux_moteur = fauxMoteur()
+  
     
       
   def verifierCoup(self,coup_joueur) :

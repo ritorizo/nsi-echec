@@ -9,7 +9,7 @@ class Moteur:
         self.echiquier=[[[["TB"],["PB"],[],[],[],[],["PN"],["TN"]],[["CB"],["PB"],[],[],[],[],["PN"],["CN"]],[["FB"],["PB"],[],[],[],[],["PN"],["FN"]],[["QB"],["PB"],[],[],[],[],["PN"],["KN"]],[["KB"],["PB"],[],[],[],[],["PN"],["QN"]],[["FB"],["PB"],[],[],[],[],["PN"],["FN"]],[["CB"],["PB"],[],[],[],[],["PN"],["CN"]],[["TB"],["PB"],[],[],[],[],["PN"],["TN"]]],0]
         self.Blanc=les_joueurs[0]
         self.Noire=les_joueurs[1]
-        self.etat_partie="en cour"
+        self.etat_partie="en cours"
         
         
         
