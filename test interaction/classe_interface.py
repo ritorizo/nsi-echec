@@ -287,29 +287,29 @@ class Interface :
           if len(pion_candidat) >= 1 :
             pion_candidat = pion_candidat[0]
             if pion_candidat == "CB" :
-              self.screen.blit(self.img_CB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+              self.screen.blit(self.img_CB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case*8-(self.taille_case*y),self.taille_case,self.taille_case])
             if pion_candidat == "CN" :
-              self.screen.blit(self.img_CN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+              self.screen.blit(self.img_CN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case*8-(self.taille_case*y),self.taille_case,self.taille_case])
             if pion_candidat == "FB" :
-              self.screen.blit(self.img_FB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+              self.screen.blit(self.img_FB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case*8-(self.taille_case*y),self.taille_case,self.taille_case])
             if pion_candidat == "FN" :
-              self.screen.blit(self.img_FN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+              self.screen.blit(self.img_FN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case*8-(self.taille_case*y),self.taille_case,self.taille_case])
             if pion_candidat == "KB" :
-              self.screen.blit(self.img_KB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+              self.screen.blit(self.img_KB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case*8-(self.taille_case*y),self.taille_case,self.taille_case])
             if pion_candidat == "KN" :
-              self.screen.blit(self.img_KN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+              self.screen.blit(self.img_KN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case*8-(self.taille_case*y),self.taille_case,self.taille_case])
             if pion_candidat == "PB" :
-              self.screen.blit(self.img_PB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+              self.screen.blit(self.img_PB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case*8-(self.taille_case*y),self.taille_case,self.taille_case])
             if pion_candidat == "PN" :
-              self.screen.blit(self.img_PN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+              self.screen.blit(self.img_PN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case*8-(self.taille_case*y),self.taille_case,self.taille_case])
             if pion_candidat == "QB" :
-              self.screen.blit(self.img_QB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+              self.screen.blit(self.img_QB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case*8-(self.taille_case*y),self.taille_case,self.taille_case])
             if pion_candidat == "QN" :
-              self.screen.blit(self.img_QN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+              self.screen.blit(self.img_QN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case*8-(self.taille_case*y),self.taille_case,self.taille_case])
             if pion_candidat == "TB" :
-              self.screen.blit(self.img_TB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+              self.screen.blit(self.img_TB,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case*8-(self.taille_case*y),self.taille_case,self.taille_case])
             if pion_candidat == "TN" :
-              self.screen.blit(self.img_TN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case+(self.taille_case*y),self.taille_case,self.taille_case])
+              self.screen.blit(self.img_TN,[self.marge+self.taille_case+(self.taille_case*x),self.taille_case*8-(self.taille_case*y),self.taille_case,self.taille_case])
     gene_pion = True
     if gene_co == False :
       for x in range(8) :
@@ -388,7 +388,7 @@ class Interface :
     Rien
     '''
     coup_traduit = (self.traducteurHumainMachine(coup_joueur[0]),self.traducteurHumainMachine(coup_joueur[1]))
-    faux_moteur = fauxMoteur()
+    print(coup_traduit)
     if self.moteur.coupValide(coup_traduit) == False :
       self.messageErreur()
     if self.moteur.coupValide(coup_traduit) ==  True :
@@ -412,9 +412,10 @@ class Interface :
       ROOT = tk.Tk()
       ROOT.withdraw()
       coup_str = simpledialog.askstring(title="Echecs.exe",
-                                  prompt="Entrez votre mouvement")
+                                  prompt="Entrez votre mouvement sous la forme ((x1,y1),(x2,y2))")
       #print(self.coup_joueur)
-      self.coup_joueur = ((coup_str[3],coup_str[7]),(coup_str[13],coup_str[17]))
+      self.coup_joueur = ((coup_str[2],coup_str[4]),(coup_str[8],coup_str[10]))
+      print(self.coup_joueur)
       self.verifierCoup(self.coup_joueur)
       return self.coup_joueur
 
@@ -451,17 +452,17 @@ class Interface :
 
     return cordone_traduit
 
-  def messageErreur(self,verifierCoup) :
+  def messageErreur(self) :
     '''Fonction qui affiche un message d'erreur au joueur si son coup n'est pas possible
     Paramètres : 
     ----------------
-    verifierCoup : Lors de son appel, la fonction du même nom sera en paramètres, elle renverra True ou False
+    Aucun
     Renvoie :
     ----------------
     Rien
     '''
-    if verifierCoup == False :
-      messagebox.showinfo("Echecs.exe", "Erreur : votre coup est invalide")
+    
+    messagebox.showinfo("Echecs.exe", "Erreur : votre coup est invalide")
 
   
      
@@ -471,7 +472,6 @@ class Interface :
 
   
 
-      
 
  
     
@@ -481,7 +481,7 @@ test_fini = False
 demaragge = False         
 interface = Interface()
 #print(interface.menuDemarrage())
-running = False
+running = True
 while running == True :
   pygame.display.flip()
   if demaragge == False :
@@ -512,6 +512,6 @@ while running == True :
 #self.generationEchiquier(interface.moteur.getEchiquier())
 #print(interface.moteur.etat_partie)
 #print(interface.moteur.getEchiquier())
-interface.generationEchiquier()
-banane = interface.demanderCoup()
-print(banane)
+#interface.generationEchiquier()
+#banane = interface.demanderCoup()
+#print(banane)
