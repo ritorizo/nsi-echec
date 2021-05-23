@@ -389,10 +389,14 @@ class Interface :
     '''
     coup_traduit = (self.traducteurHumainMachine(coup_joueur[0]),self.traducteurHumainMachine(coup_joueur[1]))
     print(coup_traduit)
-    if self.moteur.coupValide(coup_traduit) == False :
-      self.messageErreur()
-    if self.moteur.coupValide(coup_traduit) ==  True :
+
+    estValide = self.moteur.coupValide(coup_traduit)
+    print(estValide)
+
+    if (estValide) :
       self.moteur.gestionCoupValider(coup_traduit)
+    else :
+      self.messageErreur()
 
   def demanderCoup(self) :
     '''
@@ -431,7 +435,8 @@ class Interface :
     '''
     a=coordonnees[0]
     b=coordonnees[1]
-        
+
+    cordone_traduit=""
             
     if a=="a" or a =="A":
       cordone_traduit=(0,int(b)-1)

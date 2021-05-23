@@ -119,6 +119,7 @@ class Moteur:
     
     
     
+    #TODO dévider de se que position_piece renvois si elle trouve rien
     def positionPiece(self,piece,echiquier):
         """méthode de moteur qui permette de determminer pa position d une piece dans un echiquier
         _________________________________
@@ -126,13 +127,14 @@ class Moteur:
         une piece
         ___________________________________
         return
-        un tuple de 2 int entre 0 et 7 compris 
+        un tuple de 2 int entre 0 et 7 compris' 
         """
-         #on determin la position de la piece rechercher
+        #on determin la position de la piece rechercher
+        position_piece = (-1, -1)
         for x in range(8):
             for y in range (8):
                 if echiquier[0][x][y]==[piece]:
-                    position_piece =( x,y)
+                    position_piece =(x,y)
                     
         return position_piece          
                     
@@ -160,7 +162,7 @@ class Moteur:
         position_roi=self.positionPiece("K"+joueur,echiquier)
         
         #on regarde si le rois est en echeque
-        le_roi_est_en_echeque = moteur.caseProtegePar(position_roi,moteur.lAutreJoueur(joueur),echiquier)
+        le_roi_est_en_echeque = self.caseProtegePar(position_roi,self.lAutreJoueur(joueur),echiquier)
         
         return le_roi_est_en_echeque
     
@@ -255,17 +257,17 @@ class Moteur:
                 
         #on teste si la tour ou les mouvement aurisontal/vertical de la rene  protége la case   
         for une_direction_type_tour in directions_type_tour:
-            if echiquier[0][self.getNextePiece(une_direction_type_tour)[0]][self.getNextePiece(une_direction_type_tour)[1]]==["T"+joueur] or echiquier[0][self.getNextePiece(une_direction_type_tour)[0]][self.getNextePiece(une_direction_type_tour)[1]]==["Q"+joueur]:
+            if echiquier[0][self.getNextPiece(une_direction_type_tour)[0]][self.getNextPiece(une_direction_type_tour)[1]]==["T"+joueur] or echiquier[0][self.getNextPiece(une_direction_type_tour)[0]][self.getNextPiece(une_direction_type_tour)[1]]==["Q"+joueur]:
                 la_case_est_controler_par_le_joueur=True
-                case_qui_exerce_le_control.append(self.getNextePiece(une_direction_type_tour))
+                case_qui_exerce_le_control.append(self.getNextPiece(une_direction_type_tour))
                 
                     
                     
         #on teste si le fou ou les coup diagonal de la rene protége la case
         for une_direction_type_fou in directions_type_fou:
-            if echiquier[0][self.getNextePiece(une_direction_type_fou)[0]][self.getNextePiece(une_direction_type_fou)[1]]==["F"+joueur] or echiquier[0][self.getNextePiece(une_direction_type_fou)[0]][self.getNextePiece(une_direction_type_fou)[1]]==["Q"+joueur]:
+            if echiquier[0][self.getNextPiece(une_direction_type_fou)[0]][self.getNextPiece(une_direction_type_fou)[1]]==["F"+joueur] or echiquier[0][self.getNextPiece(une_direction_type_fou)[0]][self.getNextPiece(une_direction_type_fou)[1]]==["Q"+joueur]:
                 la_case_est_controler_par_le_joueur=True
-                case_qui_exerce_le_control.append(self.getNextePiece(une_direction_type_fou))
+                case_qui_exerce_le_control.append(self.getNextPiece(une_direction_type_fou))
                 
               
         return (la_case_est_controler_par_le_joueur,case_qui_exerce_le_control)
@@ -441,24 +443,7 @@ class Moteur:
 
         if echiquier_a_analyser[-1] % 2 == 0:
             return "Blanc"
-    
-        if echiquier_a_analyser[-1] % 2 != 0:
-            return "Noir"
-
-    def connaitreTour(self,echiquier_a_analyser):
-        '''
-        Permet de savoir à qui est le tour sur l'échiquier.
-        ----------
-        renvoie "Blanc" si c'est un tour paire.
-        renvoie "Noir" si c'est un tour impaire.
-        ----------
-        Peut être utilisé lors d'un besoin de savoir qui a joué
-        '''
-
-        if echiquier_a_analyser[-1] % 2 == 0:
-            return "Blanc"
-    
-        if echiquier_a_analyser[-1] % 2 != 0:
+        else: 
             return "Noir"
 
     def sauvegarde(self,echiquier_a_sauvegarder):
@@ -494,7 +479,7 @@ class Moteur:
         if self.echecEtMat(self.connaitreTour) == True:
             if self.connaitreTour(self.echiquier) == "Blanc":
                 self.etat_partie = "Noir a perdu"
-            if self.connaitreTour(self.echiquier) == "Noir":
+            else: 
                 self.etat_partie = "Blanc a perdu"
 
 
@@ -556,12 +541,33 @@ class Moteur:
    
         return result
    
+    def formateEchiquier(self):
+        """Alors mon code"""
+        line = []
+        nouveau = [[], self.echiquier[1]]
+
+        for x in range(8):
+            del line[:]
+            for y in range(8):
+                if ( self.echiquier[0][x][y] == [] ):
+                    line.append("  ")
+                else:
+                    line.append(self.echiquier[0][x][y][0])
+            
+            nouveau[0].append(line)
+
+        return nouveau
+
     def coupValide(self, mouvement):
         x1 = mouvement[0][0]
         y1 = mouvement[0][1]
         x2 = mouvement[1][0]
         y2 = mouvement[1][1]
+
+        echiquier=self.formateEchiquier()
+        print(echiquier)
    
+        print(x1, y1, x2, y2)
         result = True
    
         # Vérifie que le mouvement ne sort pas de l'échiquier
@@ -573,11 +579,11 @@ class Moteur:
         if (result == True):
 
             # Vérifie que le joueur a le droit de séléctioner la piéce qu'il a choisi.
-            if (self.echiquier[x1][y1][1] != self.couleurTour()):
+            if (echiquier[0][x1][y1][1] != self.couleurTour()):
                 result = False
    
             # Vérifie que le joueur n'ésaye pas de manger sa propre piéce.
-            elif (self.echiquier[x2][y2][1] == self.couleurTour()):
+            elif (echiquier[0][x2][y2][1] == self.couleurTour()):
                 result = False
                 
             # Vérifique que la piéce ne reste pas sur place.
@@ -586,7 +592,7 @@ class Moteur:
 
         
         # Fait les vérifications spécifiques aux piéces 
-        piece = self.echiquier[0][x1][y1][0]
+        piece = echiquier[0][x1][y1][0]
         if (result == True):
 
             # Verif roi <fait>
@@ -645,22 +651,22 @@ class Moteur:
                     
                 mouv = ((x1-x2), (y1-y2)*facteurSens)
                 
-                if ( ( mouv == (0, 1) ) and ( self.echiquier[x2][y2][0] == "" ) ):
+                if ( ( mouv == (0, 1) ) and ( echiquier[0][x2][y2] == "  " ) ):
                     result=True
-                elif (( (abs(mouv[0]), mouv[1]) == (1, 1)) and ( self.echiquier[0][x2][y2] != "" ) ): # Si (le mouvement va en diagonale et va dans le bon sens) && La case de destination contien une piéce.
+                elif (( (abs(mouv[0]), mouv[1]) == (1, 1)) and ( echiquier[0][x2][y2] != "  " ) ): # Si (le mouvement va en diagonale et va dans le bon sens) && La case de destination contien une piéce.
                     result=True
-                elif (mouv == (0, 2) and (y1 == (3.5+(2.5)*facteurSens)) and (self.echiquier[x2][y2][0] != "")  ):
+                elif (mouv == (0, 2) and (y1 == (3.5+(2.5)*facteurSens)) and (echiquier[x2][y2][0] != "")  ):
                     result=True
-                elif ((abs(mouv[0]), mouv[1]) == (1, 0) and ( self.echiquier[0][x2][y2][0] == 'P')):
+                elif ((abs(mouv[0]), mouv[1]) == (1, 0) and ( echiquier[0][x2][y2][0] == 'P')):
                     result=True
                 else :
                     result=False
                 
-        tmp = self.echiquier
+        tmp = echiquier
         tmp[0][x2][y2] = tmp[0][x1][y1]
         tmp[0][x1][y1] = ""
 
-        if (result and (echequrAuRoi(couleurTour(), echiquier))):
+        if (result and (self.echequeAuRoi(self.couleurTour(), echiquier))):
             result = False
             
         return result
