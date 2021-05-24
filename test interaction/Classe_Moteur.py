@@ -257,17 +257,17 @@ class Moteur:
                 
         #on teste si la tour ou les mouvement aurisontal/vertical de la rene  protége la case   
         for une_direction_type_tour in directions_type_tour:
-            if echiquier[0][self.getNextPiece(une_direction_type_tour)[0]][self.getNextPiece(une_direction_type_tour)[1]]==["T"+joueur] or echiquier[0][self.getNextPiece(une_direction_type_tour)[0]][self.getNextPiece(une_direction_type_tour)[1]]==["Q"+joueur]:
+            if echiquier[0][self.getNextPiece(une_case,une_direction_type_tour)[0]][self.getNextPiece(une_case,une_direction_type_tour)[1]]==["T"+joueur] or echiquier[0][self.getNextPiece(une_case,une_direction_type_tour)[0]][self.getNextPiece(une_case,une_direction_type_tour)[1]]==["Q"+joueur]:
                 la_case_est_controler_par_le_joueur=True
-                case_qui_exerce_le_control.append(self.getNextPiece(une_direction_type_tour))
+                case_qui_exerce_le_control.append(self.getNextPiece(une_case,une_direction_type_tour))
                 
                     
                     
         #on teste si le fou ou les coup diagonal de la rene protége la case
         for une_direction_type_fou in directions_type_fou:
-            if echiquier[0][self.getNextPiece(une_direction_type_fou)[0]][self.getNextPiece(une_direction_type_fou)[1]]==["F"+joueur] or echiquier[0][self.getNextPiece(une_direction_type_fou)[0]][self.getNextPiece(une_direction_type_fou)[1]]==["Q"+joueur]:
+            if echiquier[0][self.getNextPiece(une_case,une_direction_type_fou)[0]][self.getNextPiece(une_case,une_direction_type_fou)[1]]==["F"+joueur] or echiquier[0][self.getNextPiece(une_case,une_direction_type_fou)[0]][self.getNextPiece(une_case,une_direction_type_fou)[1]]==["Q"+joueur]:
                 la_case_est_controler_par_le_joueur=True
-                case_qui_exerce_le_control.append(self.getNextPiece(une_direction_type_fou))
+                case_qui_exerce_le_control.append(self.getNextPiece(une_case,une_direction_type_fou))
                 
               
         return (la_case_est_controler_par_le_joueur,case_qui_exerce_le_control)
@@ -339,17 +339,17 @@ class Moteur:
                 
         #on teste si la tour ou les mouvement aurisontal/vertical de la rene  protége la case   
         for une_direction_type_tour in directions_type_tour:
-            if echiquier[0][self.getNextePiece(une_direction_type_tour)[0]][self.getNextePiece(une_direction_type_tour)[1]]==["T"+joueur] or echiquier[0][self.getNextePiece(une_direction_type_tour)[0]][self.getNextePiece(une_direction_type_tour)[1]]==["Q"+joueur]:
+            if echiquier[0][self.getNextePiece(une_case,une_direction_type_tour)[0]][self.getNextePiece(une_case,une_direction_type_tour)[1]]==["T"+joueur] or echiquier[0][self.getNextePiece(une_case,une_direction_type_tour)[0]][self.getNextePiece(une_case,une_direction_type_tour)[1]]==["Q"+joueur]:
                 la_case_est_controler_par_le_joueur=True
-                case_qui_exerce_le_control.append(self.getNextePiece(une_direction_type_tour))
+                case_qui_exerce_le_control.append(self.getNextePiece(une_case,une_direction_type_tour))
                 
                     
                     
         #on teste si le fou ou les coup diagonal de la rene protége la case
         for une_direction_type_fou in directions_type_fou:
-            if echiquier[0][self.getNextePiece(une_direction_type_fou)[0]][self.getNextePiece(une_direction_type_fou)[1]]==["F"+joueur] or echiquier[0][self.getNextePiece(une_direction_type_fou)[0]][self.getNextePiece(une_direction_type_fou)[1]]==["Q"+joueur]:
+            if echiquier[0][self.getNextePiece(une_case,une_direction_type_fou)[0]][self.getNextePiece(une_case,une_direction_type_fou)[1]]==["F"+joueur] or echiquier[0][self.getNextePiece(une_case,une_direction_type_fou)[0]][self.getNextePiece(une_case,une_direction_type_fou)[1]]==["Q"+joueur]:
                 la_case_est_controler_par_le_joueur=True
-                case_qui_exerce_le_control.append(self.getNextePiece(une_direction_type_fou))
+                case_qui_exerce_le_control.append(self.getNextePiece(une_case,une_direction_type_fou))
                 
               
         return (la_case_est_controler_par_le_joueur,case_qui_exerce_le_control)
