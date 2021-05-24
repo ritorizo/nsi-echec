@@ -415,8 +415,12 @@ class Interface :
     if self.mode[self.echiquier[1]%2] == "J" :
       ROOT = tk.Tk()
       ROOT.withdraw()
-      coup_str = simpledialog.askstring(title="Echecs.exe",
-                                  prompt="Entrez votre mouvement sous la forme ((x1,y1),(x2,y2))")
+      if self.echiquier[1]%2 == 0 :
+        coup_str = simpledialog.askstring(title="Echecs.exe",
+                                  prompt="Joueur blanc, entrez votre mouvement sous la forme ((x1,y1),(x2,y2))")
+      if self.echiquier[1]%2 == 1 :
+        coup_str = simpledialog.askstring(title="Echecs.exe",
+                                  prompt="Joueur noir, entrez votre mouvement sous la forme ((x1,y1),(x2,y2))")
       #print(self.coup_joueur)
       self.coup_joueur = ((coup_str[2],coup_str[4]),(coup_str[8],coup_str[10]))
       print(self.coup_joueur)
