@@ -639,14 +639,14 @@ class Moteur:
 
             # Verif roi <fait>
             if (piece == 'K'): 
-                if ( 2 <= ((x1-x2)**2+(y1-y2)**2)):
+                if ( 2 < ((x1-x2)**2+(y1-y2)**2)):
                     result = False
         
             # Verif reinne <fait>
             elif (piece == 'Q'):
                 delta = ((x2-x1), (y2-y1))
-                dirrection = (signe(delta[0]), signe(delta[1]))
-                nextpiece = getNextPiece((x1, y1), dirrection)
+                dirrection = (self.signe(delta[0]), self.signe(delta[1]))
+                nextpiece = self.getNextPiece((x1, y1), self.dirrection)
                 deltaMax = ((nextpice[0]-x1), nextpiece[1]-y1 )
 
                 if (abs(delta[0]) > abs(deltaMax[0])) or (delta[1] > abs(deltaMax[1])):
@@ -656,8 +656,8 @@ class Moteur:
             elif (piece == 'F'):
                 if (estDiagonale(mouvement)):
                     delta = ((x2-x1), (y2-y1))
-                    dirrection = (signe(delta[0]), signe(delta[1]))
-                    nextpiece = getNextPiece((x1, y1), dirrection)
+                    dirrection = (self.signe(delta[0]), self.signe(delta[1]))
+                    nextpiece = self.getNextPiece((x1, y1), dirrection)
                     deltaMax = ((nextpice[0]-x1), nextpiece[1]-y1 )
 
                     if (abs(delta[0]) > abs(deltaMax[0])) or (delta[1] > abs(deltaMax[1])):
@@ -672,16 +672,15 @@ class Moteur:
 
             #Verif tour <fait>
             elif (piece == 'T'):
-                if (estDroit(mouvement)):
+                if (self.estDroit(mouvement)):
                     delta = ((x2-x1), (y2-y1))
-                    dirrection = (signe(delta[0]), signe(delta[1]))
-                    nextpiece = getNextPiece((x1, y1), dirrection)
+                    dirrection = (self.signe(delta[0]), self.signe(delta[1]))
+                    nextpiece = self.getNextPiece((x1, y1), dirrection)
                     deltaMax = ((nextpice[0]-x1), nextpiece[1]-y1 )
 
-                    if (abs(delta[0]) > abs(deltaMax[0])) or (delta[1] > abs(deltaMax[1])):
-                        result == False
-                    else :  
+                    if not (abs(delta[0]) > abs(deltaMax[0])) or (delta[1] > abs(deltaMax[1])):
                         result = False
+                   
                             
         
             # Verif pion <fait>
