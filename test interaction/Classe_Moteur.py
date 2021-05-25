@@ -1,3 +1,6 @@
+from pygame import encode_file_path
+
+
 class Moteur:
 
     echiquier = [[[["TB"],[],["KN"],[],[],[],[],[]], [[],[],[],[],["KB"],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],["QB"],[],[]], [[],[],[],[],[],[],[],[]], [['PB'],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]]], 0]
@@ -476,23 +479,23 @@ class Moteur:
         else: 
             return "Noir"
 
-    def sauvegarde(self,echiquier_a_sauvegarder):
-
-        sauvegarde_tour = echiquier_a_sauvegarder[-1]
-        sauvegarde_tour = str(sauvegarde_tour)
-        echiquier_a_sauvegarder = str(echiquier_a_sauvegarder)
-        fichier=open('./logs/sauvegarde_echec.txt','a+')
-        fichier.write('Tour ')
-        fichier.write(sauvegarde_tour)
-        fichier.write(' : ')
-        fichier.write(echiquier_a_sauvegarder)
-        fichier.write( '\n' )
-        fichier.close
-        print("Sauvegarde du tour effectué")
+    #def sauvegarde(self,echiquier_a_sauvegarder):
+#
+    #    sauvegarde_tour = echiquier_a_sauvegarder[-1]
+    #    sauvegarde_tour = str(sauvegarde_tour)
+    #    echiquier_a_sauvegarder = str(echiquier_a_sauvegarder)
+    #    fichier=open('logs/sauvegarde_echec.txt','a+')
+    #    fichier.write('Tour ')
+    #    fichier.write(sauvegarde_tour)
+    #    fichier.write(' : ')
+    #    fichier.write(echiquier_a_sauvegarder)
+    #    fichier.write( '\n' )
+    #    fichier.close
+    #    print("Sauvegarde du tour effectué")
 
     def gestionCoupValider(self,mouvement): # mouvement entrée sous la forme ((0,5),(1,6))
 
-        self.sauvegarde(self.echiquier)
+        #self.sauvegarde(self.echiquier)
         
         # déplacement du pion avec les coordonées entré par mouvement. (sur les deux prochaines lignes)
         self.echiquier[0][mouvement[1][0]][mouvement[1][1]]=self.echiquier[0][mouvement[0][0]][mouvement[0][1]]
@@ -515,7 +518,7 @@ class Moteur:
 
         self.echiquier[-1]+= 1 # on ajoute 1 au compteur de tour.
 
-
+        print(self.echiquier)
         print("gestionCoupValider effectué")
 
     def getNextPiece(self,coordonées_de_pièce, direction_a_analyser):
