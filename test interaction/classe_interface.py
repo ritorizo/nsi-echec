@@ -390,8 +390,8 @@ class Interface :
     coup_traduit = (self.traducteurHumainMachine(coup_joueur[0]),self.traducteurHumainMachine(coup_joueur[1]))
     print(coup_traduit)
 
-    estValide = True
-    #estValide = self.moteur.coupValide(coup_traduit)
+    #estValide = True
+    estValide = self.moteur.coupValide(coup_traduit)
     print(estValide)
 
     if (estValide) :
