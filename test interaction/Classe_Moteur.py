@@ -14,7 +14,7 @@ class Moteur:
         
         
         
-    def echequeEtMat(self,joueur):
+    def echecEtMat(self,joueur):
         """methode de moteur qui permet de savoir si un joueur est en echeque et mat
         ______________________
         demande

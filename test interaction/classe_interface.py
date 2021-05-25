@@ -390,7 +390,8 @@ class Interface :
     coup_traduit = (self.traducteurHumainMachine(coup_joueur[0]),self.traducteurHumainMachine(coup_joueur[1]))
     print(coup_traduit)
 
-    estValide = self.moteur.coupValide(coup_traduit)
+    estValide = True
+    #estValide = self.moteur.coupValide(coup_traduit)
     print(estValide)
 
     if (estValide) :
@@ -417,12 +418,12 @@ class Interface :
       ROOT.withdraw()
       if self.echiquier[1]%2 == 0 :
         coup_str = simpledialog.askstring(title="Echecs.exe",
-                                  prompt="Joueur blanc, entrez votre mouvement sous la forme ((x1,y1),(x2,y2))")
+                                  prompt="Joueur blanc, entrez votre mouvement sous la forme x1,y1|x2,y2 (| peut etre un espace)")
       if self.echiquier[1]%2 == 1 :
         coup_str = simpledialog.askstring(title="Echecs.exe",
-                                  prompt="Joueur noir, entrez votre mouvement sous la forme ((x1,y1),(x2,y2))")
+                                  prompt="Joueur noir, entrez votre mouvement sous la forme x1,y1|x2,y2 (| peut etre un espace)")
       #print(self.coup_joueur)
-      self.coup_joueur = ((coup_str[2],coup_str[4]),(coup_str[8],coup_str[10]))
+      self.coup_joueur = ((coup_str[0],coup_str[2]),(coup_str[4],coup_str[6]))
       print(self.coup_joueur)
       self.verifierCoup(self.coup_joueur)
       return self.coup_joueur
