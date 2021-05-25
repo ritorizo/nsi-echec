@@ -157,9 +157,10 @@ class Moteur:
         
         ex:   (True, [(2, 1), (0, 1)])
         """
-    
+
         #on determin la position du rois rechercher
-        position_roi=self.positionPiece("K"+joueur,echiquier)
+        le_roi="K"+joueur
+        position_roi=self.positionPiece(le_roi,echiquier)
         
         #on regarde si le rois est en echeque
         le_roi_est_en_echeque = self.caseProtegePar(position_roi,self.lAutreJoueur(joueur),echiquier)
