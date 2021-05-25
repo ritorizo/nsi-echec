@@ -639,7 +639,7 @@ class Moteur:
 
             # Verif roi <fait>
             if (piece == 'K'): 
-                if (4 < ((x1-x2)**2+(y1-y2)**2)):
+                if ( 2 <= ((x1-x2)**2+(y1-y2)**2)):
                     result = False
         
             # Verif reinne <fait>
