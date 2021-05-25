@@ -690,7 +690,7 @@ class Moteur:
                 if (self.couleurTour == 'N'):
                     facteurSens = -1
                     
-                mouv = ((x1-x2), (y1-y2)*facteurSens)
+                mouv = ((x2-x1), (y2-y1)*facteurSens)
                 
                 if ( ( mouv == (0, 1) ) and ( echiquier[0][x2][y2] == "  " ) ):
                     result=True
