@@ -96,8 +96,33 @@ class Moteur:
         x=case1[0]-case2[0]
         y=case1[1]-case2[1]
         
-        x=x/abs(x)
-        y=y/abs(y)
+        while c2 ==False :
+            if x%2==0 and y%2==0:
+                x=x/2
+                y=y/2
+            else:
+                c2==True
+
+        while c5 ==False :
+            if x%5==0 and y%5==0:
+                x=x/5
+                y=y/5
+            else:
+                c5==True
+
+        while c3 ==False :
+            if x%3==0 and y%3==0:
+                x=x/3
+                y=y/3
+            else:
+                c3==True
+
+        while c7 ==False :
+            if x%7==0 and y%7==0:
+                x=x/7
+                y=y/7
+            else:
+                c7==True
         
         return (x,y)
     
