@@ -585,7 +585,7 @@ class Moteur:
         nouveau = [[], self.echiquier[1]]
 
         for x in range(8):
-            del line[:]
+            line = []
             for y in range(8):
                 if ( self.echiquier[0][x][y] == [] ):
                     line.append("  ")
@@ -670,7 +670,7 @@ class Moteur:
                             
             # Verif cavalier <fait>
             elif (piece == 'C'):
-                if not(( (x1-x2)**2 + (y1-y2)**2 ) == 13 ): 
+                if not(( (x2-x1)**2 + (y2-y1)**2 ) == 5 ): 
                     result = False
 
             #Verif tour <fait>
@@ -679,9 +679,9 @@ class Moteur:
                     delta = ((x2-x1), (y2-y1))
                     dirrection = (self.signe(delta[0]), self.signe(delta[1]))
                     nextpiece = self.getNextPiece((x1, y1), dirrection)
-                    deltaMax = ((nextpice[0]-x1), nextpiece[1]-y1 )
+                    deltaMax = ((nextpiece[0]-x1), nextpiece[1]-y1 )
 
-                    if not (abs(delta[0]) > abs(deltaMax[0])) or (delta[1] > abs(deltaMax[1])):
+                    if (abs(delta[0]) > abs(deltaMax[0])) or (delta[1] > abs(deltaMax[1])):
                         result = False
                    
                             
@@ -699,7 +699,7 @@ class Moteur:
                     result=True
                 elif (( (abs(mouv[0]), mouv[1]) == (1, 1)) and ( echiquier[0][x2][y2] != "  " ) ): # Si (le mouvement va en diagonale et va dans le bon sens) && La case de destination contien une piéce.
                     result=True
-                elif (mouv == (0, 2) and (y1 == (3.5+(2.5)*facteurSens)) and (echiquier[0][x2][y2] != "  ")  ):
+                elif (mouv == (0, 2) and (y1 == (3.5+(-2.5)*facteurSens)) and (echiquier[0][x2][y2] == "  ")  ):
                     result=True
                 elif ((abs(mouv[0]), mouv[1]) == (1, 0) and ( echiquier[0][x2][y2][0] == 'P')):
                     result=True
@@ -716,25 +716,26 @@ class Moteur:
             
         return result
 
-def estDiagonale(mouv): 
-    result = False
-    if ( abs((mouv[0][0]-mouv[1][0])/(mouv[0][1]-mouv[1][1])) == 0.5 ): # Si (x1-x2)/(y1-y2) == 0.5
-        result = True
+    def estDiagonale(self, mouv): 
+        result = False
+        if ( abs((mouv[0][0]-mouv[1][0])/(mouv[0][1]-mouv[1][1])) == 0.5 ): # Si (x1-x2)/(y1-y2) == 0.5
+            result = True
 
-    return result
-
-
-def estDroit(mouv):
-    result = False
-    if ( ((mouv[0][0] - mouv[1][0]) * (mouv[0][1] - mouv[1][1])) == 0): # Si ((x1 - x2) * (y1 - y2)) == 0
-        result = True
-
-    return result
+        return result
 
 
-def signe(x):
-    if (x == 0):
-        return 0
-    else: 
-        return ( x/abs(x) )
+    def estDroit(self, mouv):
+        result = False
+        if ( ((mouv[0][0] - mouv[1][0]) * (mouv[0][1] - mouv[1][1])) == 0): # Si ((x1 - x2) * (y1 - y2)) == 0
+            result = True
 
+        return result
+
+
+    def signe(self, x):
+        result = 0
+        if (x > 0):
+            result = 1
+        elif (x < 0):
+            result = -1
+        return result
