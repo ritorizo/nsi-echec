@@ -399,6 +399,16 @@ class Interface :
     else :
       self.messageErreur()
 
+  def coupSouris(self) :
+    if self.mode[self.echiquier[1]%2] == "J" :
+      for event in pygame.event.get():
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_pos = event.pos
+            if mouse_pos[0] > self.marge + self.taille_case :
+              print("yahoo")
+
+
+
   def demanderCoup(self) :
     '''
     Fonction qui crées une box input où le joueur met son coup si c'est son tour, puis le traduit en un tuple que le code peut utiliser.
@@ -503,7 +513,8 @@ while running == True :
     interface.generationEchiquier()
     if demaragge == True : 
       interface.appelerRobot()
-      interface.demanderCoup()
+      #interface.demanderCoup()
+      interface.coupSouris()
       interface.generationEchiquier()
   else :
     interface.partieFini(interface.moteur.getEtatPartie())
