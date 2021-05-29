@@ -72,7 +72,10 @@ class Interface :
 
   echiquier = [[["TN"],["CN"],["FN"],["QN"],["KN"],["FN"],["CN"],["TN"]],[["PN"],["PN"],["PN"],["PN"],["PN"],["PN"],["PN"],["PN"]],[[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[]],[["PB"],["PB"],["PB"],["PB"],["PB"],["PB"],["PB"],["PB"]],[["TB"],["CB"],["FB"],["QB"],["KB"],["FB"],["CB"],["TB"]],0]
   mode = ("J","J")
-  coup_joueur = ()
+  compteur = 0
+  coup_donne = False
+  coup_joueur_depart = ()
+  coup_joueur_destination = ()
   etat = "rien"
 
   moteur=Moteur(mode)
@@ -391,21 +394,61 @@ class Interface :
     print(coup_traduit)
 
     # estValide = True
-    estValide = self.moteur.coupValide(coup_traduit)
+    #estValide = self.moteur.coupValide(coup_traduit)
+    estValide = self.moteur.coupValide(coup_joueur)
     print(estValide)
 
     if (estValide) :
-      self.moteur.gestionCoupValider(coup_traduit)
+      self.moteur.gestionCoupValider(coup_joueur)
+      self.coup_donne = True
     else :
       self.messageErreur()
 
-  def coupSouris(self) :
+  def sourisSelection(self) :
     if self.mode[self.echiquier[1]%2] == "J" :
+      depart = ()
+      arrivee = ()
       for event in pygame.event.get():
-        if event.type == pygame.MOUSEBUTTONDOWN:
+          if event.type == pygame.QUIT : 
+            running = False
+            pygame.quit()
+            print("Fermeture")
+
+          if event.type == pygame.MOUSEBUTTONDOWN :
             mouse_pos = event.pos
-            if mouse_pos[0] > self.marge + self.taille_case :
-              print("yahoo")
+            self.compteur +=1
+            print(self.compteur)
+            if self.compteur == 1 :
+              self.sourisDepart(mouse_pos)
+            if self.compteur == 2 : 
+              self.sourisArrivee(mouse_pos)
+              self.coup_joueur = (self.coup_joueur_depart,self.coup_joueur_destination)
+              print(self.coup_joueur)
+              self.verifierCoup(self.coup_joueur)
+              return self.coup_joueur
+            if self.compteur >= 3 :
+              self.compteur = 0
+
+
+  def sourisDepart(self,mouse_pos) :
+    for x in range(8) :
+      for y in range(8) :
+          if mouse_pos[0] > self.marge+ self.taille_case+(self.taille_case*x) and mouse_pos[0] < self.marge+ self.taille_case+(self.taille_case*x)+self.taille_case and mouse_pos[1] < self.taille_case*9-(self.taille_case*y) and mouse_pos[1] > self.taille_case*8 - (self.taille_case*y) :
+            self.coup_joueur_depart = (x,y)
+            pion_deplace = self.echiquier[0][x][y]
+            print(self.coup_joueur_depart)
+            print("Pion selectionne :", pion_deplace)
+
+  def sourisArrivee(self,mouse_pos) :
+    for x in range(8) :
+      for y in range(8) :
+        if mouse_pos[0] > self.marge+ self.taille_case+(self.taille_case*x) and mouse_pos[0] < self.marge+ self.taille_case+(self.taille_case*x)+self.taille_case and mouse_pos[1] < self.taille_case*9-(self.taille_case*y) and mouse_pos[1] > self.taille_case*8 - (self.taille_case*y) :
+          self.coup_joueur_destination = (x,y)
+          co_destination = self.echiquier[0][x][y]
+          print("Destination : ", self.coup_joueur_destination)
+
+            
+
 
 
 
@@ -513,8 +556,11 @@ while running == True :
     interface.generationEchiquier()
     if demaragge == True : 
       interface.appelerRobot()
+      interface.compteur = 0
+      interface.coup_donne = 0
+      while interface.coup_donne == False :
       #interface.demanderCoup()
-      interface.coupSouris()
+        interface.sourisSelection()
       interface.generationEchiquier()
   else :
     interface.partieFini(interface.moteur.getEtatPartie())
